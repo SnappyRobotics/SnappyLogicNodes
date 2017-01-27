@@ -1,0 +1,46 @@
+<script type="text/javascript">
+    RED.nodes.registerType('differential', {
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: {
+                value: ""
+            },
+            turn: {
+                value: ""
+            },
+            motion: {
+                value: ""
+            }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "function.png",
+        label: function() {
+            return this.name || "differential";
+        }
+    });
+</script>
+
+
+<script type="text/x-red" data-template-name="differential">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-first"><i class="icon-tag"></i> turn</label>
+        <input type="text" id="node-input-turn" placeholder="turn">
+    </div>
+    <div class="form-row">
+        <label for="node-input-second"><i class="icon-tag"></i> motion</label>
+        <input type="text" id="node-input-second" placeholder="motion">
+    </div>
+
+</script>
+<script type="text/x-red" data-help-name="differential">
+    <p>differential_drive node </p>
+    <p>turn :left or right turn</p>
+    <p>motion:forward or revers directon</p>
+
+</script>
