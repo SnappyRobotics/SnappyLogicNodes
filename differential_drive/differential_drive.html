@@ -1,6 +1,6 @@
 <script type="text/javascript">
     RED.nodes.registerType('differential_drive', {
-        category: 'function',
+        category: 'Snappy Logic',
         color: '#a6bbcf',
         defaults: {
             name: {
@@ -38,9 +38,8 @@
     </div>
 
 </script>
-<script type="text/x-red" data-help-name="node-type">
-   <p>Some useful help text to introduce the node.</p>
-   <p>Outputs an object called <code>msg</code> containing <code>msg.topic</code> and
-   <code>msg.payload</code>.</p>
-   <p><code>msg.payload</code> is a <i>String</i>.</p>
+<script type="text/x-red" data-help-name="differential_drive">
+   <p>differential_drive node.</p>
+   <p>user need define turn and motion (i.e., left or right turn and forward and revers motion)</p>
+   <p><code>msg.turn</code> is a <i>integer</i>,<code>msg.motion</code> is a <i>integer</i>.</p>
 </script>
