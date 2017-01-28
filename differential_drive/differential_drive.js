@@ -17,7 +17,7 @@ module.exports = function(RED) {
                 node.motion = Number(msg.motion);
             } else if (msg.topic == 'turn') {
                 node.turn = Number(msg.payload);
-            } else if (msg.topic == 'motion') {
+            } else(msg.topic == 'motion') {
                 node.motion = Number(msg.payload);
             }
             newMsg = cal();
@@ -25,8 +25,8 @@ module.exports = function(RED) {
         });
 
         function cal() {
-
+            //differential drive code here
         }
-        RED.nodes.registerType("differential_drive", differential_drive);
+        RED.nodes.registerType("differential drive", differential_drive);
     }
 }
