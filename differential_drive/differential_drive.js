@@ -12,8 +12,9 @@ module.exports = function(RED) {
                             node.send(msg);
                         }
                         */
+
             msg.payload = msg.payload.toLowerCase();
-            node.send(msg);
+            this.send([msg, msg]);
         });
 
     }
