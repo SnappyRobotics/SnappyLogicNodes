@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('differential drive', {
+    RED.nodes.registerType('differential_drive', {
         category: 'Snappy Logic',
         color: '#F9E79F',
         defaults: {
@@ -14,16 +14,16 @@
             }
         },
         inputs: 1,
-        outputs: 2,
+        outputs: 1,
         icon: "function.png",
         label: function() {
-            return this.name || "differential drive";
+            return this.name || "differential_drive";
         }
     });
 </script>
 
 
-<script type="text/x-red" data-template-name="differential drive">
+<script type="text/x-red" data-template-name="differential_drive">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
@@ -38,7 +38,7 @@
     </div>
 
 </script>
-<script type="text/x-red" data-help-name="differential drive">
+<script type="text/x-red" data-help-name="differential_drive">
    <p>differential drive node.</p>
    <p>user need define turn and motion (i.e., left or right turn and forward and revers motion)</p>
    <p><code>msg.turn</code> is a <i>integer</i>,<code>msg.motion</code> is a <i>integer</i>.</p>
