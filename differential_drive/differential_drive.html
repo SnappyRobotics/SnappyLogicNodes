@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('differential', {
+    RED.nodes.registerType('differential_drive', {
         category: 'function',
         color: '#a6bbcf',
         defaults: {
@@ -17,30 +17,30 @@
         outputs: 1,
         icon: "function.png",
         label: function() {
-            return this.name || "differential";
+            return this.name || "differential_drive";
         }
     });
 </script>
 
 
-<script type="text/x-red" data-template-name="differential">
+<script type="text/x-red" data-template-name="differential_drive">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-first"><i class="icon-tag"></i> turn</label>
+        <label for="node-input-turn"><i class="icon-tag"></i> turn</label>
         <input type="text" id="node-input-turn" placeholder="turn">
     </div>
     <div class="form-row">
-        <label for="node-input-second"><i class="icon-tag"></i> motion</label>
-        <input type="text" id="node-input-second" placeholder="motion">
+        <label for="node-input-motion"><i class="icon-tag"></i> motion</label>
+        <input type="text" id="node-input-motion" placeholder="motion">
     </div>
 
 </script>
-<script type="text/x-red" data-help-name="differential">
-    <p>differential_drive node </p>
-    <p>turn :left or right turn</p>
-    <p>motion:forward or revers directon</p>
-
+<script type="text/x-red" data-help-name="node-type">
+   <p>Some useful help text to introduce the node.</p>
+   <p>Outputs an object called <code>msg</code> containing <code>msg.topic</code> and
+   <code>msg.payload</code>.</p>
+   <p><code>msg.payload</code> is a <i>String</i>.</p>
 </script>

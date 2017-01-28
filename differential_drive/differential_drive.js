@@ -1,7 +1,7 @@
 module.exports = function(RED) {
     "use strict";
 
-    function differential(config) {
+    function differential_drive(config) {
         RED.nodes.createNode(this, config);
         var node = this;
 
@@ -17,10 +17,9 @@ module.exports = function(RED) {
                 node.motion = Number(msg.motion);
             } else if (msg.topic == 'turn') {
                 node.turn = Number(msg.payload);
-            } else(msg.topic == 'motion') {
+            } else if (msg.topic == 'motion') {
                 node.motion = Number(msg.payload);
             }
-
             newMsg = cal();
             node.send(newMsg);
         });
@@ -28,6 +27,6 @@ module.exports = function(RED) {
         function cal() {
 
         }
-        RED.nodes.registerType("differential", differential);
+        RED.nodes.registerType("differential_drive", differential_drive);
     }
 }
