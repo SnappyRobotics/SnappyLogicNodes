@@ -44,7 +44,6 @@ module.exports = function(RED) {
                     var Rmotor = {
                         payload: "anticlockwise"
                     };
-
                 }
                 this.send([Lmotor, Rmotor, null]);
             }
