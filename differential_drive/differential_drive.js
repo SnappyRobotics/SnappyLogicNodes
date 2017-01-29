@@ -68,5 +68,5 @@ module.exports = function(RED) {
         });
 
     }
-    RED.nodes.registerType("differential_drive", differential_drive);
+    RED.nodes.registerType("differential drive", differential_drive);
 }
