@@ -24,34 +24,38 @@ module.exports = function(RED) {
                     };
 
                 }
-                this.send([Lmotor, Rmotor]);
+                this.send([Lmotor, Rmotor, null]);
             }
 
 
             if (msg.topic == "motion") {
-                this.send([null, msg]);
+                if (msg.payload == "forward") {
+                    var Lmotor = {
+                        payload: "anticlockwise"
+                    };
+                    var Rmotor = {
+                        payload: "clockwise"
+                    };
+
+                } else if (msg.payload == "revers") {
+                    var Lmotor = {
+                        payload: "clockwise"
+                    };
+                    var Rmotor = {
+                        payload: "anticlockwise"
+                    };
+
+                }
+                this.send([Lmotor, Rmotor, null]);
             }
+
+            if (msg.topic == "speed") {
+
+                this.send([null, null, msg]);
+            }
+
         });
 
     }
     RED.nodes.registerType("differential_drive", differential_drive);
 }
-/*
-if (msg.topic == "turn") {
-    if (msg.payload == "left") {
-        var Lmotor = "anticlockwise"
-        var Rmotor = "anticlockwise"
-    } else if (msg.payload) {
-        var Lmotor = "clockwise"
-        var Rmotor = "clockwise"
-    }
-    this.send([Lmotor, Rmotor]);
-}
-if (msg.topic == "motion") {
-    if (msg.payload == "forward") {
-        var Lmotor = "anticlockwise"
-        var Rmotor = "clockwise"
-    }
-    this.send([Lmotor, Rmotor]);
-}
-*/

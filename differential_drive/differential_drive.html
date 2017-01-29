@@ -14,7 +14,7 @@
             }
         },
         inputs: 1,
-        outputs: 2,
+        outputs: 3,
         icon: "function.png",
         label: function() {
             return this.name || "differential_drive";
@@ -36,6 +36,11 @@
         <label for="node-input-motion"><i class="icon-tag"></i> motion</label>
         <input type="text" id="node-input-motion" placeholder="motion">
     </div>
+    <div class="form-row">
+        <label for="node-input-speed"><i class="icon-tag"></i> speed</label>
+        <input type="text" id="node-input-speed" placeholder="speed">
+    </div>
+
 
 </script>
 <script type="text/x-red" data-help-name="differential_drive">
