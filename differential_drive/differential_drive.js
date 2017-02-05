@@ -56,15 +56,6 @@ module.exports = function(RED) {
                 ]);
             }
 
-            if (msg.topic == "speed") {
-
-                this.send([
-                    [null],
-                    [null],
-                    [msg]
-                ]);
-            }
-
         });
 
     }
