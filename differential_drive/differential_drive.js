@@ -9,18 +9,18 @@ module.exports = function(RED) {
             if (msg.topic == "turn") {
                 if (msg.payload == "left") {
                     var Lmotor = {
-                        payload: "anticlockwise"
+                        payload: -1
                     };
                     var Rmotor = {
-                        payload: "anticlockwise"
+                        payload: 1
                     };
                 } else if (msg.payload == "right") {
                     var Lmotor = {
-                        payload: "clockwise"
+                        payload: 1
                     };
 
                     var Rmotor = {
-                        payload: "clockwise"
+                        payload: 1
                     };
                 }
                 this.send([
@@ -32,20 +32,20 @@ module.exports = function(RED) {
             if (msg.topic == "motion") {
                 if (msg.payload == "forward") {
                     var Lmotor = {
-                        payload: "anticlockwise"
+                        payload: -1
                     };
 
                     var Rmotor = {
-                        payload: "clockwise"
+                        payload: 1
                     };
 
                 } else if (msg.payload == "reverse") {
                     var Lmotor = {
-                        payload: "clockwise"
+                        payload: 1
                     };
 
                     var Rmotor = {
-                        payload: "anticlockwise"
+                        payload: -1
                     };
 
                 }
