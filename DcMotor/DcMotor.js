@@ -51,7 +51,7 @@ function init(RED) {
 
     createNodebotNode(RED);
 
-    function gpioOutNode(n) {
+    function dcmotorOutNode(n) {
         RED.nodes.createNode(this, n);
         this.buttonState = -1;
         this.pin = n.pin;
