@@ -41,7 +41,7 @@ module.exports = function(RED) {
 
                 } else if (msg.payload == "reverse") {
                     var Lmotor = {
-                        payload: 1
+                        payload: -1
                     };
 
                     var Rmotor = {
