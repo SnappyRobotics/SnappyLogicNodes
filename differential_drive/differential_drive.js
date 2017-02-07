@@ -16,7 +16,7 @@ module.exports = function(RED) {
                     };
                 } else if (msg.payload == "right") {
                     var Lmotor = {
-                        payload: 1
+                        payload: -1
                     };
 
                     var Rmotor = {
@@ -25,8 +25,7 @@ module.exports = function(RED) {
                 }
                 this.send([
                     [Lmotor],
-                    [Rmotor],
-                    [null]
+                    [Rmotor]
                 ]);
             }
             if (msg.topic == "motion") {
@@ -51,8 +50,7 @@ module.exports = function(RED) {
                 }
                 this.send([
                     [Lmotor],
-                    [Rmotor],
-                    [null]
+                    [Rmotor]
                 ]);
             }
 

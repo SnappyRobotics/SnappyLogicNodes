@@ -30,7 +30,7 @@ describe('testing differential drive', function() {
         });
     });
 
-    it('should send left returned -1', function(done) {
+    it('should send left returned something', function(done) {
         var flow = [{
                 id: "n1",
                 type: "differential drive",
@@ -57,31 +57,48 @@ describe('testing differential drive', function() {
             });
         });
     });
-    it('should send left returned -1', function(done) {
+    it('should send right returned 1', function(done) {
         var flow = [{
                 id: "n1",
                 type: "differential drive",
                 wires: [
-                    ["n2"]
-                ],
-                func: "return msg;"
+                    ["n2"],
+                    ["n3"]
+                ]
             },
             {
                 id: "n2",
+                type: "helper"
+            },
+            {
+                id: "n3",
                 type: "helper"
             }
         ];
         helper.load(differential_drive, flow, function() {
             var n1 = helper.getNode("n1");
             var n2 = helper.getNode("n2");
+            var n3 = helper.getNode("n3");
+            var c = 0;
             n2.on("input", function(msg) {
                 msg.should.have.property('payload', -1);
-                done();
+                c++;
+                if (c == 2) {
+                    done();
+                }
+            });
+            n3.on("input", function(msg) {
+                msg.should.have.property('payload', 1);
+                c++;
+                if (c == 2) {
+                    done();
+                }
             });
             n1.receive({
-                payload: "left",
+                payload: "right",
                 topic: "turn"
             });
+            done("Didn't gave expected output")
         });
     });
 });
