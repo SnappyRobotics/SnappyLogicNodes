@@ -1,0 +1,19 @@
+{
+  "name": "node-red-node-differential_drive",
+  "version": "1.0.0",
+  "description": "",
+  "node-red": {
+    "nodes": {
+      "snappy differential_drive": "differential_drive.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Adarsh Belavatagi",
+    "email": "adarsh.sb18@gmail.com",
+    "url": "https://github.com/Belavatagi"
+  },
+  "license": "GPL-3.0"
+}
