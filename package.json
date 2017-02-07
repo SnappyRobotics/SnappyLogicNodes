@@ -10,7 +10,7 @@
     },
     "scripts": {
         "serve": "nodemon run.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "mocha ./test/_spec.js"
     },
     "repository": {
         "type": "git",
@@ -35,6 +35,10 @@
         "mqtt-serial": "^0.6.0",
         "serialport": "^4.0.7",
         "skynet-serial": "^1.3.0",
-        "udp-serial": "^0.2.0"
+        "udp-serial": "^0.2.0",
+        "should": "^11.1.2",
+        "chai": "^3.5.0",
+        "mocha": "^3.2.0",
+        "nock": "^9.0.2"
     }
 }

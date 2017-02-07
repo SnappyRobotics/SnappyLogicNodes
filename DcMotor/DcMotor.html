@@ -1,4 +1,15 @@
-<script type="text/x-red" data-template-name="Dc Motor">
+<!-- The MIT License (MIT)
+=====================
+
+Copyright (c) 2015 Luis Montes
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ -->
+<script type="text/x-red" data-template-name="gpio in">
     <div class="form-row">
         <label for="node-input-board"><i class="fa fa-tasks"></i> Board</label>
         <input type="text" id="node-input-board">
@@ -26,7 +37,11 @@
     </div>
 </script>
 
-<script type="text/x-red" data-template-name="Dc Motor">
+<script type="text/x-red" data-help-name="gpio in">
+    <p>gpio input node. A node for receiving data from General Purpose Input and Outputs (GPIOs) pins though the use of johnny-five I/O Plugins</p>
+</script>
+
+<script type="text/x-red" data-template-name="gpio out">
     <div class="form-row">
         <label for="node-input-board"><i class="fa fa-tasks"></i> Board</label>
         <input type="text" id="node-input-board">
@@ -61,8 +76,8 @@
     <div class="form-tips" id="node-div-formTipRow"><b>Note:</b> You cannot use the same pin for both output and input.</div>
 </script>
 
-<script type="text/x-red" data-help-name="Dc Motor">
-    <p>Dc Motor output node. A node for sending data to General Purpose Input and Outputs (Dc Motor) pins though the use of johnny-five I/O Plugins</p>
+<script type="text/x-red" data-help-name="gpio out">
+    <p>gpio output node. A node for sending data to General Purpose Input and Outputs (GPIOs) pins though the use of johnny-five I/O Plugins</p>
 </script>
 
 <script type="text/x-red" data-template-name="nodebot">
@@ -176,8 +191,117 @@
     </div>
 </script>
 
+
+
+
+
+<script type="text/x-red" data-template-name="johnny5">
+    <div class="form-row">
+        <label for="node-input-board"><i class="fa fa-tasks"></i> Board</label>
+        <input type="text" id="node-input-board">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span>name</span></label>
+        <input type="text" id="node-input-name">
+    </div>
+    <div class="form-row" style="margin-bottom: 0px;">
+        <label for="node-input-func"><i class="fa fa-wrench"></i> <span>onReady</span></label>
+        <input type="hidden" id="node-input-func" autofocus="autofocus">
+        <input type="hidden" id="node-input-noerr">
+    </div>
+    <div class="form-row node-text-editor-row">
+        <div style="height: 250px;" class="node-text-editor" id="node-input-func-editor"></div>
+    </div>
+    <div class="form-tips"><span>See the Info tab for help writing johnny-five functions.</span></div>
+</script>
+
+<script type="text/x-red" data-help-name="johnny5">
+    <p>A function block where you can write code using the amazing <a target="_new" href="http://johnny-five.io">johnny-five</a> robotics library.</p>
+    <p>The function you write is what happens once the specified johnny-five board emits a 'ready' event.</p>
+    <p>Your script executes <strong>ONCE</strong> on deployment, <strong>NOT</strong> each time a message comes.</p>
+
+    <strong>Using johnny-five components</strong>
+    <p>The "board" and "five" variables are avaiable for use when creating johnny-five component instances such as:
+        <p><code>var led = new five.Led({pin: 13, board: board});</code></p>
+    </p>
+
+    <strong>Handling inputs and outputs</strong>
+    <p>You handle input and output messages to the node in your code with:
+        <p> <code>node.on("input", function(msg){ ... })</code> and <code>node.send({topic: "myTopic", payload: "myPayload"})</code></p>
+    </p>
+
+    <strong>Using other modules</strong>
+    <p>You have node require available to your scritps to do things such as:
+        <p> <code>var _ = require("lodash");</code></p>
+    </p>
+
+
+</script>
+
 <script type="text/javascript">
-    RED.nodes.registerType('Dc Motor', {
+    RED.nodes.registerType('gpio in', {
+        category: 'input',
+        defaults: {
+            name: {
+                value: ""
+            },
+            state: {
+                value: "INPUT",
+                required: true
+            },
+            samplingInterval: {
+                value: "300",
+                required: false
+            },
+            pin: {
+                value: "",
+                required: false
+            },
+            board: {
+                type: "nodebot",
+                required: true
+            }
+        },
+        color: "#f6de1d",
+        inputs: 0,
+        outputs: 1,
+        icon: "gpiowhite.png",
+        label: function() {
+            return this.name || "gpio" + this.pin;
+        },
+        oneditprepare: function() {
+
+            var self = this;
+
+            function showInterval() {
+                $("#node-div-samplingIntervalRow").show();
+            }
+
+            function hideInterval() {
+                $("#node-div-samplingIntervalRow").hide();
+            }
+
+            if (self.state === 'ANALOG') {
+                showInterval();
+            } else {
+                hideInterval();
+            }
+
+            var intervalInput = $("#node-input-state");
+            intervalInput.change(function() {
+                console.log('intervalInput changed', this.value);
+                if (this.value === 'ANALOG') {
+                    showInterval();
+                } else {
+                    hideInterval();
+                }
+            });
+
+        }
+    });
+
+
+    RED.nodes.registerType('gpio out', {
         category: 'output',
         defaults: {
             name: {
@@ -217,8 +341,8 @@
         icon: "gpiowhite.png",
         align: "right",
         label: function() {
-            console.log('name', "Dc Motor" + (this.pin || this.i2cAddress || ''));
-            return this.name || "Dc Motor" + (this.pin || this.i2cAddress || '');
+            console.log('name', "gpio" + (this.pin || this.i2cAddress || ''));
+            return this.name || "gpio" + (this.pin || this.i2cAddress || '');
         },
         oneditprepare: function() {
 
@@ -267,6 +391,9 @@
             console.log('saving', this, a, stateInput.val());
         }
     });
+
+
+
     RED.nodes.registerType('nodebot', {
         category: 'config',
         defaults: {
@@ -454,6 +581,90 @@
         },
         oneditsave: function(a) {
             console.log('saving', this, a);
+        }
+    });
+
+
+    RED.nodes.registerType('johnny5', {
+        color: "#f6de1d",
+        category: 'function',
+        defaults: {
+            name: {
+                value: ""
+            },
+            func: {
+                value: ""
+            },
+            board: {
+                type: "nodebot",
+                required: true
+            },
+            noerr: {
+                value: 0,
+                required: true,
+                validate: function(v) {
+                    return ((!v) || (v === 0)) ? true : false;
+                }
+            }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "johnny5white.png",
+        label: function() {
+            return this.name || 'johnny5';
+        },
+        oneditprepare: function() {
+            var that = this;
+            $("#node-input-outputs").spinner({
+                min: 1
+            });
+
+            function functionDialogResize() {
+                var rows = $("#dialog-form>div:not(.node-text-editor-row)");
+                var height = $("#dialog-form").height();
+                for (var i = 0; i < rows.size(); i++) {
+                    height -= $(rows[i]).outerHeight(true);
+                }
+                var editorRow = $("#dialog-form>div.node-text-editor-row");
+                height -= (parseInt(editorRow.css("marginTop"), 10) + parseInt(editorRow.css("marginBottom"), 10));
+                $(".node-text-editor").css("height", height + "px");
+                that.editor.resize();
+            }
+            $("#dialog").on("dialogresize", functionDialogResize);
+            $("#dialog").one("dialogopen", function(ev) {
+                var size = $("#dialog").dialog('option', 'sizeCache-function');
+                if (size) {
+                    $("#dialog").dialog('option', 'width', size.width);
+                    $("#dialog").dialog('option', 'height', size.height);
+                    functionDialogResize();
+                }
+            });
+            $("#dialog").one("dialogclose", function(ev, ui) {
+                var height = $("#dialog").dialog('option', 'height');
+                $("#dialog").off("dialogresize", functionDialogResize);
+            });
+
+            this.editor = RED.editor.createEditor({
+                id: 'node-input-func-editor',
+                mode: 'ace/mode/javascript',
+                value: $("#node-input-func").val()
+            });
+
+            this.editor.focus();
+        },
+        oneditsave: function() {
+            var annot = this.editor.getSession().getAnnotations();
+            this.noerr = 0;
+            $("#node-input-noerr").val(0);
+            for (var k = 0; k < annot.length; k++) {
+                //console.log(annot[k].type,":",annot[k].text, "on line", annot[k].row);
+                if (annot[k].type === "error") {
+                    $("#node-input-noerr").val(annot.length);
+                    this.noerr = annot.length;
+                }
+            }
+            $("#node-input-func").val(this.editor.getValue());
+            delete this.editor;
         }
     });
 </script>
