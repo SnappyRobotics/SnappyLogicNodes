@@ -81,24 +81,32 @@ describe('testing differential drive', function() {
             var n3 = helper.getNode("n3");
             var c = 0;
             n2.on("input", function(msg) {
-                msg.should.have.property('payload', -1);
-                c++;
-                if (c == 2) {
-                    done();
+                try {
+                    msg.should.have.property('payload', -1);
+                    c++;
+                    if (c == 2) {
+                        done();
+                    }
+                } catch (err) {
+                    done(err)
                 }
             });
             n3.on("input", function(msg) {
-                msg.should.have.property('payload', 1);
-                c++;
-                if (c == 2) {
-                    done();
+                try {
+                    msg.should.have.property('payload', 1);
+                    c++;
+                    if (c == 2) {
+                        done();
+                    }
+                } catch (err) {
+                    done(err)
                 }
             });
             n1.receive({
                 payload: "right",
                 topic: "turn"
             });
-            done("Didn't gave expected output")
+            //done("Didn't gave expected output")
         });
     });
 });
