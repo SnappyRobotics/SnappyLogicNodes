@@ -9,7 +9,7 @@ module.exports = function(RED) {
             if (msg.topic == "turn") {
                 if (msg.payload == "left") {
                     var Lmotor = {
-                        payload: -1
+                        payload: 1
                     };
                     var Rmotor = {
                         payload: 1
@@ -20,7 +20,7 @@ module.exports = function(RED) {
                     };
 
                     var Rmotor = {
-                        payload: 1
+                        payload: -1
                     };
                 }
                 this.send([
@@ -40,7 +40,7 @@ module.exports = function(RED) {
 
                 } else if (msg.payload == "reverse") {
                     var Lmotor = {
-                        payload: -1
+                        payload: 1
                     };
 
                     var Rmotor = {

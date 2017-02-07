@@ -1,3 +1,4 @@
+console.log("============================================");
 const gulp = require('gulp');
 const mocha = require('gulp-mocha');
 const gutil = require('gulp-util');
