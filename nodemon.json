@@ -1,4 +1,4 @@
 {
-    "verbose": true,
-    "ext": "js html css json"
+  "verbose": true,
+  "ext": "js html css json"
 }
