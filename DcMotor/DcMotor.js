@@ -57,21 +57,21 @@ function init(RED) {
     this.pin = n.pin;
     this.state = n.state;
     this.arduino = n.arduino;
-    this.nodebot1 = RED.nodes.getNode(n.board);
+    this.nodebot = RED.nodes.getNode(n.board);
     this.i2cAddress = parseInt(n.i2cAddress, 10);
     this.i2cRegister = parseInt(n.i2cRegister, 10);
-    if (typeof this.nodebot1 === "object") {
+    if (typeof this.nodebot === "object") {
       var node = this;
       connectingStatus(node);
 
-      node.nodebot1.on('ioready', function() {
+      node.nodebot.on('ioready', function() {
 
         connectedStatus(node);
 
         node.on('input', function(msg) {
           try {
             var state = msg.state || node.state;
-            var io = node.nodebot1.io;
+            var io = node.nodebot.io;
             if (state === 'OUTPUT') {
               try {
                 io.pinMode(node.pin, io.MODES[state]);
@@ -152,13 +152,13 @@ function init(RED) {
           }
         });
       });
-      node.nodebot1.on('networkReady', function() {
+      node.nodebot.on('networkReady', function() {
         networkReadyStatus(node);
       });
-      node.nodebot1.on('networkError', function() {
+      node.nodebot.on('networkError', function() {
         networkErrorStatus(node);
       });
-      node.nodebot1.on('ioError', function(err) {
+      node.nodebot.on('ioError', function(err) {
         ioErrorStatus(node, err);
       });
     } else {
