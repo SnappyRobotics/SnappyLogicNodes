@@ -15,7 +15,7 @@
         </select>
   </div>
   <div class="form-row" id="node-div-pinRow">
-    <label for="node-input-pin"><i class="fa fa-circle"></i> Pin</label>
+    <label for="node-input-pin"><i class="fa fa-circle"></i> Pin A</label>
     <input type="text" id="node-input-pin" placeholder="13">
   </div>
   <!-- -->
@@ -33,7 +33,7 @@
         </select>
   </div>
   <div class="form-row" id="node-div-pinRow">
-    <label for="node-input-pin"><i class="fa fa-circle"></i> Pin</label>
+    <label for="node-input-pin"><i class="fa fa-circle"></i> Pin B</label>
     <input type="text" id="node-input-pin" placeholder="13">
   </div>
   <!-- -->
@@ -58,9 +58,9 @@
   <p>A node for sending data to General Purpose Input and Outputs (GPIOs) pins though the use of johnny-five I/O Plugins</p>
 </script>
 
-<script type="text/x-red" data-template-name="nodebot">
+<script type="text/x-red" data-template-name="nodebot1">
   <div class="form-row">
-    <label for="node-config-input-boardType"><i class="fa fa-gears"></i> Nodebot</label>
+    <label for="node-config-input-boardType"><i class="fa fa-gears"></i> Nodebot1</label>
     <select type="text" id="node-config-input-boardType" style="width: 200px;">
         <option value="firmata">Arduino/Firmata</option>
         <option value="raspi-io">Raspberry Pi</option>
@@ -201,7 +201,7 @@
         value: 0
       },
       board: {
-        type: "nodebot",
+        type: "nodebot1",
         required: true
       }
     },

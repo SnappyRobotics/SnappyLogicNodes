@@ -43,7 +43,7 @@ function createNode(RED) {
       node.on('close', function(done) {
 
         if (RED.settings.verbose) {
-          node.log('closing nodebot');
+          node.log('closing nodebot1');
         }
         try {
 
@@ -337,7 +337,7 @@ function createNode(RED) {
 
 
   }
-  RED.nodes.registerType("nodebot", nodebotNode1);
+  RED.nodes.registerType("nodebot1", nodebotNode1);
 
   return nodebotNode1;
 }

@@ -57,21 +57,21 @@ function init(RED) {
     this.pin = n.pin;
     this.state = n.state;
     this.arduino = n.arduino;
-    //this.nodebot = RED.nodes.getNode(n.board);
+    this.nodebot1 = RED.nodes.getNode(n.board);
     this.i2cAddress = parseInt(n.i2cAddress, 10);
     this.i2cRegister = parseInt(n.i2cRegister, 10);
-    if (typeof this.nodebot === "object") {
+    if (typeof this.nodebot1 === "object") {
       var node = this;
       connectingStatus(node);
 
-      node.nodebot.on('ioready', function() {
+      node.nodebot1.on('ioready', function() {
 
         connectedStatus(node);
 
         node.on('input', function(msg) {
           try {
             var state = msg.state || node.state;
-            var io = node.nodebot.io;
+            var io = node.nodebot1.io;
             if (state === 'OUTPUT') {
               try {
                 io.pinMode(node.pin, io.MODES[state]);
@@ -152,22 +152,22 @@ function init(RED) {
           }
         });
       });
-      node.nodebot.on('networkReady', function() {
+      node.nodebot1.on('networkReady', function() {
         networkReadyStatus(node);
       });
-      node.nodebot.on('networkError', function() {
+      node.nodebot1.on('networkError', function() {
         networkErrorStatus(node);
       });
-      node.nodebot.on('ioError', function(err) {
+      node.nodebot1.on('ioError', function(err) {
         ioErrorStatus(node, err);
       });
     } else {
-      this.warn("nodebot not configured");
+      this.warn("nodebot1 not configured");
     }
 
   }
 
-  RED.nodes.registerType("DC motor", DCMotor);
+  RED.nodes.registerType("Dc Motor", DcMotor);
 
   function handleRoute(req, res, handler) {
     handler(req.query)
@@ -199,5 +199,5 @@ function init(RED) {
       res.json(ports);
     });
   });
-  module.exports = init;
 }
+module.exports = init;
