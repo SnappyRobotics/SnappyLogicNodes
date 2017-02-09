@@ -1,5 +1,5 @@
 module.exports = function(RED) {
-  function differential_drive(config) {
+  function differential_driveNode(config) {
     RED.nodes.createNode(this, config);
     var node = this;
 
@@ -70,5 +70,5 @@ module.exports = function(RED) {
 
     });
   }
-  RED.nodes.registerType("differential drive", differential_drive);
+  RED.nodes.registerType("differential drive", differential_driveNode);
 }
