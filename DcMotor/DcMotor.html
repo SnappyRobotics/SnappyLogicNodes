@@ -3,6 +3,7 @@
     <label for="node-input-board"><i class="fa fa-tasks"></i> Board</label>
     <input type="text" id="node-input-board">
   </div>
+  <!--
   <div class="form-row">
     <label for="node-input-state"><i class="fa fa-wrench"></i> Type</label>
     <select type="text" id="node-input-state" style="width: 200px;">
@@ -14,6 +15,7 @@
             <option value="I2C_DELAY">I2C Delay</option>
         </select>
   </div>
+  -->
   <div class="form-row" id="node-div-pinRow">
     <label for="node-input-pin"><i class="fa fa-circle"></i> Pin</label>
     <input type="text" id="node-input-pin" placeholder="13">
@@ -159,7 +161,7 @@
         value: ""
       },
       state: {
-        value: "OUTPUT",
+        value: "Digital",
         required: true
       },
       pin: {
