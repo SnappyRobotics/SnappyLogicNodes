@@ -1,5 +1,5 @@
 var serialport = require('serialport');
-var createNodebotNode1 = require('./lib/nodebotNode1');
+//var createNodebotNode = require('nodebotNode');
 
 var five = require('johnny-five');
 var vm = require('vm');
@@ -49,7 +49,7 @@ function connectedStatus(n) {
 
 
 function init(RED) {
-  createNodebotNode1(RED);
+  //createNodebotNode(RED);
 
   function DcMotor(n) {
     RED.nodes.createNode(this, n);
