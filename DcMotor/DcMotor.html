@@ -4,15 +4,10 @@
     <input type="text" id="node-input-board">
   </div>
 
-
-
-
   <div class="form-row" id="node-div-pinRow">
     <label for="node-input-pin"><i class="fa fa-circle"></i> PinA</label>
     <input type="text" id="node-input-pin" placeholder="13">
   </div>
-
-
 
   <div class="form-row">
     <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
@@ -24,118 +19,6 @@
 <script type="text/x-red" data-help-name="Dc Motor">
   <p>A node for sending data to General Purpose Input and Outputs (GPIOs) pins though the use of johnny-five I/O Plugins</p>
 </script>
-
-<script type="text/x-red" data-template-name="nodebot">
-  <div class="form-row">
-    <label for="node-config-input-boardType"><i class="fa fa-gears"></i> Nodebot</label>
-    <select type="text" id="node-config-input-boardType" style="width: 200px;">
-        <option value="firmata">Arduino/Firmata</option>
-        <option value="raspi-io">Raspberry Pi</option>
-        <option value="beaglebone-io">BeagleBone Black</option>
-        <option value="galileo-io">Galileo/Edison</option>
-        <option value="blend-micro-io">Blend Micro</option>
-        <option value="bean-io">LightBlue Bean</option>
-        <option value="imp-io">Electirc Imp</option>
-        <option value="particle-io">Particle(Spark) Core/Photon</option>
-        <option value="tinker-io">Particle/Tinker</option>
-        <option value="chip-io">C.H.I.P.</option>
-    </select>
-  </div>
-  <div class="form-row" id="node-div-firmataRow">
-    <div class="form-row" id="node-div-connectionTypeRow">
-      <label for="node-config-input-connectionType"><i class="fa fa-wrench"></i> Connection</label>
-      <select type="text" id="node-config-input-connectionType" style="width: 200px;">
-          <option value="local">Local Serial Port</option>
-          <option value="tcp">TCP Connect to</option>
-          <option value="tcplisten">TCP Listen on</option>
-          <option value="udp">UDP broadcast</option>
-          <option value="socketio">socket.io</option>
-          <option value="mqtt">MQTT</option>
-          <option value="meshblu">Meshblu (skynet)</option>
-      </select>
-    </div>
-    <div class="form-row" id="node-div-serialRow">
-      <label for="node-config-input-serialportName"><i class="fa fa-random"></i> Port</label>
-      <input type="text" id="node-config-input-serialportName" style="width:60%;" placeholder="e.g. /dev/ttyUSB0  COM1" />
-      <a id="node-config-lookup-serial" class="btn"><i id="node-config-lookup-serial-icon" class="fa fa-search"></i></a>
-    </div>
-    <div class="form-row" id="node-div-tcpHostRow">
-      <label for="node-config-input-tcpHost"><i class="fa fa-globe"></i> TCP Host</label>
-      <input type="text" id="node-config-input-tcpHost">
-    </div>
-    <div class="form-row" id="node-div-tcpPortRow">
-      <label for="node-config-input-tcpPort"><i class="fa fa-random"></i> TCP port</label>
-      <input type="text" id="node-config-input-tcpPort">
-    </div>
-    <div class="form-row" id="node-div-mqttRow">
-      <label for="node-config-input-mqttServer"><i class="fa fa-globe"></i>MQTT Server</label>
-      <input type="text" id="node-config-input-mqttServer" placeholder="mqtt://my_mqtt_server:1883">
-    </div>
-    <div class="form-row" id="node-div-socketServerRow">
-      <label for="node-config-input-socketServer"><i class="fa fa-globe"></i>Websocket Server</label>
-      <input type="text" id="node-config-input-socketServer" placeholder="wss://my_socket_server">
-    </div>
-    <div class="form-row" id="node-div-meshbluServerRow">
-      <label for="node-config-input-meshbluServer"><i class="fa fa-globe"></i>Meshblu Server</label>
-      <input type="text" id="node-config-input-meshbluServer" placeholder="https://meshblu.octoblu.com">
-    </div>
-    <div class="form-row" id="node-div-uuidRow">
-      <label for="node-config-input-uuid"><i class="fa fa-globe"></i>UUID</label>
-      <input type="text" id="node-config-input-uuid" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
-    </div>
-    <div class="form-row" id="node-div-tokenRow">
-      <label for="node-config-input-token"><i class="fa fa-globe"></i>token</label>
-      <input type="text" id="node-config-input-token">
-    </div>
-    <div class="form-row" id="node-div-usernameRow">
-      <label for="node-config-input-username"><i class="fa fa-user"></i> username</label>
-      <input type="text" id="node-config-input-username">
-    </div>
-    <div class="form-row" id="node-div-passwordRow">
-      <label for="node-config-input-password"><i class="fa fa-lock"></i> password</label>
-      <input type="text" id="node-config-input-password">
-    </div>
-    <div class="form-row" id="node-div-sendUuidRow">
-      <label for="node-config-input-sendUuid"><i class="fa fa-globe"></i>send UUID</label>
-      <input type="text" id="node-config-input-sendUuid" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
-    </div>
-    <div class="form-row" id="node-div-pubRow">
-      <label for="node-config-input-pubTopic"><i class="fa fa-tag"></i>Publish Topic</label>
-      <input type="text" id="node-config-input-pubTopic" placeholder="pubTopic">
-    </div>
-    <div class="form-row" id="node-div-subRow">
-      <label for="node-config-input-subTopic"><i class="fa fa-tag"></i>Subscribe Topic</label>
-      <input type="text" id="node-config-input-subTopic" placeholder="subTopic">
-    </div>
-  </div>
-  <div class="form-row" id="node-div-sparkRow">
-    <div class="form-row">
-      <label for="node-config-input-sparkId"><i class="fa fa-user"></i> Device Id</label>
-      <input type="text" id="node-config-input-sparkId">
-    </div>
-    <div class="form-row">
-      <label for="node-config-input-sparkToken"><i class="fa fa-lock"></i> Token</label>
-      <input type="text" id="node-config-input-sparkToken">
-    </div>
-  </div>
-  <div class="form-row" id="node-div-impRow">
-    <div class="form-row">
-      <label for="node-config-input-impId"><i class="fa fa-user"></i> Agent Id</label>
-      <input type="text" id="node-config-input-impId">
-    </div>
-  </div>
-  <div class="form-row" id="node-div-beanRow">
-    <div class="form-row">
-      <label for="node-config-input-beanId"><i class="fa fa-user"></i> UUID (optional)</label>
-      <input type="text" id="node-config-input-beanId">
-    </div>
-  </div>
-  <div class="form-row">
-    <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
-    <input type="text" id="node-config-input-name" placeholder="Name">
-  </div>
-</script>
-
 
 <script type="text/javascript">
   RED.nodes.registerType('Dc Motor', {
