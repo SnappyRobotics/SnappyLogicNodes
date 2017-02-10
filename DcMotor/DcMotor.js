@@ -47,7 +47,7 @@ function init(RED) {
     RED.nodes.createNode(this, n);
     this.pinA = parseInt(n.pinA);
     this.pinB = parseInt(n.pinB);
-    this.arduino = n.arduino;
+
     this.nodebot = RED.nodes.getNode(n.board);
     if (typeof this.nodebot === "object") {
       var node = this;
