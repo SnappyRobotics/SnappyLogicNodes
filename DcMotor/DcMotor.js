@@ -1,3 +1,5 @@
+const debug = require('debug')('SnappyLogicNodes:DcMotor');
+
 function connectingStatus(n) {
   n.status({
     fill: "red",
@@ -46,7 +48,8 @@ function init(RED) {
   function DcMotor(n) {
     RED.nodes.createNode(this, n);
     this.buttonState = -1;
-    this.pin = n.pin;
+    this.pinA = n.pinA;
+    this.pinB = n.pinB;
     this.state = n.state;
     this.arduino = n.arduino;
     this.nodebot = RED.nodes.getNode(n.board);
@@ -58,22 +61,29 @@ function init(RED) {
 
         connectedStatus(node);
 
+        debug(node.pinB);
+
         node.on('input', function(msg) {
           try {
             var state = msg.state || node.state;
             var io = node.nodebot.io;
             if (state === 'OUTPUT') {
               try {
-                io.pinMode(node.pin, io.MODES[state]);
+                io.pinMode(node.pinA, io.MODES[state]);
+                io.pinMode(node.pinB, io.MODES[state]);
               } catch (exp) {
                 console.log(exp);
               }
               if ((msg.payload == true) || (msg.payload == 1) || (msg.payload.toString().toLowerCase() === "on")) {
-                io.digitalWrite(node.pin, 1);
+                io.digitalWrite(node.pinA, 1);
+                io.digitalWrite(node.pinB, 1);
               }
               if ((msg.payload == false) || (msg.payload == 0) || (msg.payload.toString().toLowerCase() === "off")) {
-                io.digitalWrite(node.pin, 0);
+                io.digitalWrite(node.pinA, 0);
+                io.digitalWrite(node.pinB, 0);
               }
+
+
             }
           } catch (inputExp) {
             node.warn(inputExp);

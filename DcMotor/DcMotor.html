@@ -4,9 +4,14 @@
     <input type="text" id="node-input-board">
   </div>
 
-  <div class="form-row" id="node-div-pinRow">
-    <label for="node-input-pin"><i class="fa fa-circle"></i> PinA</label>
-    <input type="text" id="node-input-pin" placeholder="13">
+  <div class="form-row">
+    <label for="node-input-pinA"><i class="fa fa-circle"></i> PinA</label>
+    <input type="text" id="node-input-pinA" placeholder="13">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-pinB"><i class="fa fa-circle"></i> PinB</label>
+    <input type="text" id="node-input-pinB" placeholder="13">
   </div>
 
   <div class="form-row">
@@ -31,11 +36,14 @@
         value: "OUTPUT",
         required: true
       },
-      pin: {
+      pinA: {
         value: "",
-        required: false
+        required: true
       },
-
+      pinB: {
+        value: "",
+        required: true
+      },
       outputs: {
         value: 0
       },
