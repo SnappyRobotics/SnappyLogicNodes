@@ -3,10 +3,16 @@
     <label for="node-input-board"><i class="fa fa-tasks"></i> Board</label>
     <input type="text" id="node-input-board">
   </div>
+
+
+
+
   <div class="form-row" id="node-div-pinRow">
-    <label for="node-input-pin"><i class="fa fa-circle"></i> Pin</label>
+    <label for="node-input-pin"><i class="fa fa-circle"></i> PinA</label>
     <input type="text" id="node-input-pin" placeholder="13">
   </div>
+
+
 
   <div class="form-row">
     <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
@@ -160,6 +166,10 @@
     outputs: 0,
     icon: "gpiowhite.png",
     align: "right",
+    label: function() {
+      console.log('name', "Dc Motor" + (this.pin || this.i2cAddress || ''));
+      return this.name || "Dc Motor" + (this.pin || this.i2cAddress || '');
+    }
 
   });
 </script>
