@@ -47,6 +47,8 @@ function init(RED) {
     RED.nodes.createNode(this, n);
     this.pinA = parseInt(n.pinA);
     this.pinB = parseInt(n.pinB);
+    this.pinE = parseInt(n.pinE);
+    this.speed = parseInt(n.speed);
 
     this.nodebot = RED.nodes.getNode(n.board);
     if (typeof this.nodebot === "object") {
@@ -63,7 +65,11 @@ function init(RED) {
 
             io.pinMode(node.pinA, io.MODES["OUTPUT"]);
             io.pinMode(node.pinB, io.MODES["OUTPUT"]);
+            io.pinMode(node.pinE, io.MODES["PWM"]);
 
+            if ((node.speed >= 0) && (node.speed <= 255)) {
+              io.analogWrite(node.pinE, node.speed);
+            }
             if ((msg.payload == 1) || (msg.payload.toString().toLowerCase() === "1")) {
               io.digitalWrite(node.pinA, 1);
               io.digitalWrite(node.pinB, 0);
@@ -73,7 +79,11 @@ function init(RED) {
             } else if ((msg.payload == 0) || (msg.payload.toString().toLowerCase() === "0")) {
               io.digitalWrite(node.pinA, 1);
               io.digitalWrite(node.pinB, 1);
+              io.analogWrite(node.pinE, 0);
+
             }
+            debug(node.speed, node.pinE);
+
 
           } catch (inputExp) {
             node.error(inputExp);
