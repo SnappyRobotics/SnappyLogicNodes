@@ -64,13 +64,15 @@ function init(RED) {
             io.pinMode(node.pinA, io.MODES["OUTPUT"]);
             io.pinMode(node.pinB, io.MODES["OUTPUT"]);
 
-            if ((msg.payload == true) || (msg.payload == 1) || (msg.payload.toString().toLowerCase() === "on")) {
+            if ((msg.payload == 1) || (msg.payload.toString().toLowerCase() === "1")) {
+              io.digitalWrite(node.pinA, 1);
+              io.digitalWrite(node.pinB, 0);
+            } else if ((msg.payload == -1) || (msg.payload.toString().toLowerCase() === "-1")) {
+              io.digitalWrite(node.pinA, 0);
+              io.digitalWrite(node.pinB, 1);
+            } else if ((msg.payload == 0) || (msg.payload.toString().toLowerCase() === "0")) {
               io.digitalWrite(node.pinA, 1);
               io.digitalWrite(node.pinB, 1);
-            }
-            if ((msg.payload == false) || (msg.payload == 0) || (msg.payload.toString().toLowerCase() === "off")) {
-              io.digitalWrite(node.pinA, 0);
-              io.digitalWrite(node.pinB, 0);
             }
 
           } catch (inputExp) {
