@@ -26,6 +26,21 @@
     </label>
     <input type="text" id="node-input-name" placeholder="Motor label">
   </div>
+
+  <div class="form-row">
+    <label for="node-input-pinE">
+      <i class="fa fa-map-pin"></i> PinE
+    </label>
+    <input type="null" id="node-input-pinE" placeholder="03">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-name">
+    <i class="fa fa-tag"></i> Speed
+  </label>
+    <input value="">
+  </div>
+
   <!--
   <div class="form-tips" id="node-div-formTipRow">
     <b>Note:</b> You cannot use the same pin for both output and input.
@@ -51,6 +66,10 @@
         required: true
       },
       pinB: {
+        value: null,
+        required: true
+      },
+      pinE: {
         value: null,
         required: true
       },
