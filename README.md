@@ -1,9 +1,15 @@
 # SnappyLogicNodes
+Branch - Master : [![Build Status](https://travis-ci.org/SnappyRobotics/SnappyLogicNodes.svg?branch=master)](https://travis-ci.org/SnappyRobotics/SnappyLogicNodes)
+
+Branch - Develop :
+[![Build Status](https://travis-ci.org/SnappyRobotics/SnappyLogicNodes.svg?branch=develop)](https://travis-ci.org/SnappyRobotics/SnappyLogicNodes)
+
+
 
 ##Install via NPM
-``npm install node-red-contrib-snappylogicnodes`` 
+``npm install node-red-contrib-snappylogicnodes``
 
-## Nodes 
+## Nodes
 **Dc Motor Node**       
 ![dcmotor](https://cloud.githubusercontent.com/assets/16568687/22851264/352b9008-f042-11e6-9f48-7650b13e2e78.png)    
 **Differential Drive**      
