@@ -4,7 +4,7 @@ const gutil = require('gulp-util');
 const debug = require('debug')('SnappyLogicNodes:gulpfile');
 
 gulp.task('watch', function () {
-  gulp.watch(['differential_drive/**', 'test/**'], gulp.series('mocha-watch'))
+  gulp.watch(['differential_drive/**', 'test/**'], ['mocha-watch'])
 });
 
 gulp.task('mocha', function (done) {
@@ -19,6 +19,7 @@ gulp.task('mocha', function (done) {
     .on('end', function () {
       debug("mocha done")
       done();
+      process.exit()
       process.exit()
     })
 });
