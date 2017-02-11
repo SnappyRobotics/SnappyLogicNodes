@@ -1,9 +1,9 @@
 # SnappyLogicNodes
 
-Node red nodes for logic for snappy
+##Install via NPM
+``npm install node-red-contrib-snappylogicnodes`` 
 
+## SnappyLogicNodes 
+**Differential Drive** 
 
-Currently available nodes are :
-
-- Differential Drive
-- Dc Motor Node
+**Dc Motor Node**
