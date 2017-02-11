@@ -4,7 +4,7 @@
   "description": "Node red nodes for logic for snappy",
   "scripts": {
     "serve": "DEBUG=SnappyLogicNodes:* nodemon ../node-red/red.js",
-    "test": "DEBUG=SnappyLogicNodes:* gulp watch"
+    "test": "DEBUG=SnappyLogicNodes:* ./node_modules/.bin/gulp watch"
   },
   "repository": {
     "type": "git",
