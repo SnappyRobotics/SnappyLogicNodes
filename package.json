@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Node red nodes for logic for snappy",
   "scripts": {
-    "install": "DEBUG=NodeRed_Container:*,SnappyLogicNodes:* gulp install",
+    "installRED": "DEBUG=NodeRed_Container:*,SnappyLogicNodes:* gulp install",
     "serve": "DEBUG=NodeRed_Container:*,SnappyLogicNodes:* nodemon run.js",
     "test": "DEBUG=SnappyLogicNodes:* gulp mocha"
   },
