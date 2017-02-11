@@ -1,5 +1,5 @@
 {
-  "name": "node-red-contrib-snappy_logic_nodes",
+  "name": "node-red-contrib-snappylogicnodes",
   "version": "1.0.0",
   "description": "Node red nodes for logic for snappy",
   "scripts": {
