@@ -55,6 +55,7 @@ function init(RED) {
       var node = this;
       connectingStatus(node);
 
+      debug(node)
       node.nodebot.on('ioready', function() {
 
         connectedStatus(node);

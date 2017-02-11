@@ -1,6 +1,7 @@
 var should = require("should");
 var helper = require('../helper.js');
-var differential_drive = require("../../DcMotor/DcMotor.js");
+var DcMotor = require("../../DcMotor/DcMotor.js");
+
 
 describe('testing Dc Motor', function() {
 
@@ -16,11 +17,33 @@ describe('testing Dc Motor', function() {
     var flow = [{
       id: "n1",
       type: "Dc Motor",
-      name: "function"
+      name: ""
     }];
-    helper.load(differential_drive, flow, function() {
+    helper.load(DcMotor, flow, function() {
       var n1 = helper.getNode("n1");
       done();
     });
   });
+
+  it('DcMotor with input 1, expected output is 0,1', function(done) {
+    var flow = [{
+      id: "n1",
+      type: "Dc Motor",
+      name: ""
+    }];
+    try {
+      done()
+    } catch (err) {
+      done(err)
+    }
+    helper.load(DcMotor, flow, function() {
+      var n1 = helper.getNode("n1");
+      n1.receive({
+        payload: "1",
+        topic: ""
+      });
+
+    });
+  });
+
 });
