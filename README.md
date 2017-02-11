@@ -13,5 +13,7 @@
 ![rsz_1](https://cloud.githubusercontent.com/assets/16568687/22851432/6ea48056-f047-11e6-98da-fb32178579f1.png)
 
 **Node configuration**  
-****
 ![rsz_3](https://cloud.githubusercontent.com/assets/16568687/22851508/d2f16b94-f049-11e6-9e7b-2a581e3a9124.png)
+
+###Differential Drive   
+![rsz_2](https://cloud.githubusercontent.com/assets/16568687/22851535/f1c7e3da-f04a-11e6-8a65-92aca6ea5116.png)
