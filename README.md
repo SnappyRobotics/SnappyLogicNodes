@@ -3,7 +3,7 @@
 ##Install via NPM
 ``npm install node-red-contrib-snappylogicnodes`` 
 
-## SnappyLogicNodes 
+## Nodes 
 **Differential Drive**      
 ![diff](https://cloud.githubusercontent.com/assets/16568687/22851275/c97838e2-f042-11e6-8209-8f4ff8c14f9f.png)
 
