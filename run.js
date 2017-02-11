@@ -8,8 +8,8 @@ red.check(__dirname, function (err) {
   if (err) {
     throw err
   }
-  var red = require(path.join(__dirname, "..", "node-red", 'red.js'))
-  debug(red)
+  //var red = require(path.join(__dirname, "..", "node-red", 'red.js'))
+  //debug(red)
   /*var ls = spawn(red'node-red')
 
   ls.stdout.on('data', function (data) {

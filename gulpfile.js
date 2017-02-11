@@ -1,7 +1,20 @@
 const gulp = require('gulp');
 const mocha = require('gulp-mocha');
 const gutil = require('gulp-util');
+const path = require('path');
 const debug = require('debug')('SnappyLogicNodes:gulpfile');
+
+gulp.task('install', function (done) {
+  var dir = __dirname;
+
+  require('nodered_container').check(dir, function (err) {
+    if (err) {
+      throw err
+    }
+    debug("Done")
+    done()
+  });
+})
 
 gulp.task('watch', function () {
   gulp.watch(['differential_drive/**', 'test/**'], ['mocha-watch'])
