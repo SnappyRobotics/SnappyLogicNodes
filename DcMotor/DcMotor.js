@@ -67,15 +67,20 @@ function init(RED) {
             io.pinMode(node.pinB, io.MODES["OUTPUT"]);
             io.pinMode(node.pinE, io.MODES["PWM"]);
 
-            if ((node.speed >= 0) && (node.speed <= 255)) {
-              io.analogWrite(node.pinE, node.speed);
+            function analog() {
+              if ((node.speed >= 0) && (node.speed <= 255)) {
+                io.analogWrite(node.pinE, node.speed);
+              }
             }
+
             if ((msg.payload == 1) || (msg.payload.toString().toLowerCase() === "1")) {
               io.digitalWrite(node.pinA, 1);
               io.digitalWrite(node.pinB, 0);
+              analog()
             } else if ((msg.payload == -1) || (msg.payload.toString().toLowerCase() === "-1")) {
               io.digitalWrite(node.pinA, 0);
               io.digitalWrite(node.pinB, 1);
+              analog()
             } else if ((msg.payload == 0) || (msg.payload.toString().toLowerCase() === "0")) {
               io.digitalWrite(node.pinA, 1);
               io.digitalWrite(node.pinB, 1);
