@@ -71,8 +71,8 @@ describe('testing differential drive', function() {
         }
       });
       n1.receive({
-        payload: "left",
-        topic: "turn"
+        payload: "Left",
+        topic: "tUrn"
       });
     });
   });
@@ -123,8 +123,8 @@ describe('testing differential drive', function() {
         }
       });
       n1.receive({
-        payload: "right",
-        topic: "turn"
+        payload: "Right",
+        topic: "Turn"
       });
     });
   });
@@ -175,8 +175,8 @@ describe('testing differential drive', function() {
         }
       });
       n1.receive({
-        payload: "forward",
-        topic: "motion"
+        payload: "Forward",
+        topic: "Motion"
       });
     });
 
@@ -227,8 +227,60 @@ describe('testing differential drive', function() {
         }
       });
       n1.receive({
-        payload: "reverse",
-        topic: "motion"
+        payload: "Reverse",
+        topic: "Motion"
+      });
+    });
+  });
+
+  it('Differential drive with input break,Expected output is 0,0 ', function(done) {
+    var flow = [{
+        id: "n1",
+        type: "differential drive",
+        wires: [
+          ["n2"],
+          ["n3"]
+        ]
+      },
+      {
+        id: "n2",
+        type: "helper"
+      },
+      {
+        id: "n3",
+        type: "helper"
+      }
+    ];
+    helper.load(differential_drive, flow, function() {
+      var n1 = helper.getNode("n1");
+      var n2 = helper.getNode("n2");
+      var n3 = helper.getNode("n3");
+      var c = 0;
+      n2.on("input", function(msg) {
+        try {
+          msg.should.have.property('payload', 0);
+          c++;
+          if (c == 2) {
+            done();
+          }
+        } catch (err) {
+          done(err)
+        }
+      });
+      n3.on("input", function(msg) {
+        try {
+          msg.should.have.property('payload', 0);
+          c++;
+          if (c == 2) {
+            done();
+          }
+        } catch (err) {
+          done(err)
+        }
+      });
+      n1.receive({
+        payload: "Break",
+        topic: ""
       });
     });
   });

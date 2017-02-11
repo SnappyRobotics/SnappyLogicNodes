@@ -1,15 +1,9 @@
 {
-  "name": "node-red-contrib-snappy_logic_nodes",
+  "name": "node-red-contrib-snappylogicnodes",
   "version": "1.0.0",
   "description": "Node red nodes for logic for snappy",
-  "node-red": {
-    "nodes": {
-      "differential_drive": "differential_drive/differential_drive.js",
-      "DcMotor": "DcMotor/DcMotor.js"
-    }
-  },
   "scripts": {
-    "serve": "nodemon run.js",
+    "serve": "DEBUG=SnappyLogicNodes:* nodemon ../node-red/red.js",
     "test": "DEBUG=SnappyLogicNodes:* gulp watch"
   },
   "repository": {
@@ -36,6 +30,7 @@
     "mocha": "^3.2.0",
     "mqtt-serial": "^0.6.0",
     "nock": "^9.0.2",
+    "node-red-contrib-gpio": "^0.9.2",
     "nodemon": "^1.11.0",
     "serialport": "^4.0.7",
     "should": "^11.1.2",
