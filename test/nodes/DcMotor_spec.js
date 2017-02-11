@@ -23,5 +23,4 @@ describe('testing Dc Motor', function() {
       done();
     });
   });
-
 });
