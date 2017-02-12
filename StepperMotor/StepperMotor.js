@@ -1,4 +1,4 @@
-const debug = require('debug')('SnappyLogicNodes:DcMotor');
+const debug = require('debug')('SnappyLogicNodes:StepperMotor');
 
 function connectingStatus(n) {
   n.status({
@@ -43,7 +43,7 @@ function connectedStatus(n) {
 
 
 function init(RED) {
-  function DcMotor(n) {
+  function StepperMotor(n) {
     RED.nodes.createNode(this, n);
     this.pinA = parseInt(n.pinA);
     this.pinB = parseInt(n.pinB);
@@ -55,7 +55,6 @@ function init(RED) {
       var node = this;
       connectingStatus(node);
 
-      debug(node)
       node.nodebot.on('ioready', function() {
 
         connectedStatus(node);
@@ -110,6 +109,6 @@ function init(RED) {
     }
 
   }
-  RED.nodes.registerType("Dc Motor", DcMotor);
+  RED.nodes.registerType("Stepper Motor", StepperMotor);
 }
 module.exports = init;
