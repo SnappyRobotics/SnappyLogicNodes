@@ -31,8 +31,7 @@
   "dependencies": {
     "debug": "^2.6.0",
     "node-red-contrib-gpio": "^0.9.2",
-    "nodered_container": "^2.0.41",
-    "npm-check": "^5.4.0"
+    "nodered_container": "^2.0.41"
   },
   "devDependencies": {
     "johnny-five": "^0.10.6",

@@ -6,9 +6,8 @@ before_script:
   - npm install -g gulp
   #- npm install
 script:
-  #- npm install
-  - ./node_modules/.bin/npm-check .
-  - DEBUG=* gulp installRED
+  - npm install
+  - npm run installRED
   - npm test
 #cache:
 #  bundler: true
