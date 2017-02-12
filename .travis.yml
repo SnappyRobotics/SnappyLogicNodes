@@ -5,6 +5,7 @@ before_script:
   - npm install -g gulp
 script:
   - npm install
+  - ./node_modules/.bin/npm-check .
   - gulp installRED
   - npm test
 cache:

@@ -2,12 +2,14 @@ const gulp = require('gulp');
 const mocha = require('gulp-mocha');
 const gutil = require('gulp-util');
 const path = require('path');
+const nodered_container = require('nodered_container');
+
 const debug = require('debug')('SnappyLogicNodes:gulpfile');
 
 gulp.task('installRED', function (done) {
   var dir = __dirname;
 
-  require('nodered_container').check(dir, function (err) {
+  nodered_container.check(dir, function (err) {
     if (err) {
       throw err
     }
