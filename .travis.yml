@@ -6,7 +6,7 @@ before_script:
 script:
   - npm install
   - ./node_modules/.bin/npm-check .
-  - gulp installRED
+  - DEBUG=NodeRed_Container:*,SnappyLogicNodes:* gulp installRED
   - npm test
 cache:
   bundler: true
