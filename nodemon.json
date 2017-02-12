@@ -1,4 +1,9 @@
 {
   "verbose": true,
-  "ext": "js html css json"
+  "ext": "js html css json",
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "data/settings.js"
+  ]
 }
