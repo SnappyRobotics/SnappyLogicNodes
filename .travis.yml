@@ -10,10 +10,10 @@ script:
   - ./node_modules/.bin/npm-check .
   #- DEBUG=* gulp installRED
   - npm test
-cache:
-  bundler: true
-  directories:
-  - node_modules # NPM packages
+#cache:
+#  bundler: true
+#  directories:
+#  - node_modules # NPM packages
 notifications:
   email: false
   slack: snappyrobotics:hnC94BBFxWP0egOTG39EX3Jc
