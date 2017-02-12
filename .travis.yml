@@ -2,11 +2,13 @@ language: node_js
 node_js:
   - "node"
 before_script:
+  - npm install
   - npm install -g gulp
+  - npm install
 script:
   - npm install
   - ./node_modules/.bin/npm-check .
-  - DEBUG=NodeRed_Container:*,SnappyLogicNodes:* gulp installRED
+  - DEBUG=* gulp installRED
   - npm test
 cache:
   bundler: true
