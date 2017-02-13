@@ -1,7 +1,7 @@
 var should = require("should");
 var helper = require('../helper.js');
 var DcMotor = require("../../DcMotor/DcMotor.js");
-
+const debug = require('debug')('SnappyLogicNodes:DcMotor_spec');
 
 describe('testing Dc Motor', function() {
 
@@ -36,14 +36,19 @@ describe('testing Dc Motor', function() {
     } catch (err) {
       done(err)
     }
-    helper.load(DcMotor, flow, function() {
+    helper.load(differential_drive, flow, function() {
       var n1 = helper.getNode("n1");
-      n1.receive({
-        payload: "1",
-        topic: ""
-      });
+      try {
+        n1.receive({
+          payload: "1",
+          topic: ""
 
+        });
+      } catch (err) {
+        debug("Hardware Device Not Connected");
+      }
     });
+
   });
 
 });

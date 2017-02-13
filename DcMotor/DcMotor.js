@@ -49,6 +49,7 @@ function init(RED) {
     this.pinB = parseInt(n.pinB);
     this.pinE = parseInt(n.pinE);
     this.speed = parseInt(n.speed);
+    var five = require("johnny-five")
 
     this.nodebot = RED.nodes.getNode(n.board);
     if (typeof this.nodebot === "object") {
@@ -74,7 +75,8 @@ function init(RED) {
             debug("1st after 2nd" + node.speed)
 
             function analog() {
-              if ((node.speed >= 0) && (node.speed <= 255)) {
+              if ((node.speed >= 0) && (node.speed <= 100)) {
+                node.speed = Math.floor(five.Fn.map(node.speed, 0, 255, 0, 100));
                 io.analogWrite(node.pinE, node.speed);
                 debug("inside analog function" + node.speed)
               }
