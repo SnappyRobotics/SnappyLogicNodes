@@ -1,4 +1,5 @@
 <script type="text/x-red" data-template-name="Dc Motor">
+
   <div class="form-row">
     <label for="node-input-board">
       <i class="fa fa-tasks"></i> Board
@@ -93,13 +94,13 @@
         required: true
       }
     },
-    color: "#f6de1d",
+    color: "#2E86C1",
     inputs: 1,
     outputs: 0,
-    icon: "function.png",
+    icon: "../icons/DC_MOTOR.png",
     align: "right",
     label: function() {
-      return this.name || "Motor : " + this.pinA + "_" + this.pinB;
+      return this.name || "Dc Motor : " + this.pinA + "_" + this.pinB;
     }
   });
 </script>

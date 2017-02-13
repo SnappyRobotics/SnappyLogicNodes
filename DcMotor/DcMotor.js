@@ -55,7 +55,6 @@ function init(RED) {
       var node = this;
       connectingStatus(node);
 
-      debug(node)
       node.nodebot.on('ioready', function() {
 
         connectedStatus(node);
@@ -67,28 +66,35 @@ function init(RED) {
             io.pinMode(node.pinA, io.MODES["OUTPUT"]);
             io.pinMode(node.pinB, io.MODES["OUTPUT"]);
             io.pinMode(node.pinE, io.MODES["PWM"]);
+            debug("1st before 2nd" + node.speed)
+            if (msg.payload && msg.topic.toLowerCase() == "speed") {
+              node.speed = msg.payload
+              debug("2nd " + node.speed)
+            }
+            debug("1st after 2nd" + node.speed)
 
             function analog() {
               if ((node.speed >= 0) && (node.speed <= 255)) {
                 io.analogWrite(node.pinE, node.speed);
+                debug("inside analog function" + node.speed)
               }
             }
 
-            if ((msg.payload == 1) || (msg.payload.toString().toLowerCase() === "1")) {
+            if ((msg.payload == 1) || (msg.payload.toString().toLowerCase() === "1") || msg.topic == "speed") {
               io.digitalWrite(node.pinA, 1);
               io.digitalWrite(node.pinB, 0);
               analog()
-            } else if ((msg.payload == -1) || (msg.payload.toString().toLowerCase() === "-1")) {
+            } else if ((msg.payload == -1) || (msg.payload.toString().toLowerCase() === "-1") || msg.topic == "speed") {
               io.digitalWrite(node.pinA, 0);
               io.digitalWrite(node.pinB, 1);
               analog()
-            } else if ((msg.payload == 0) || (msg.payload.toString().toLowerCase() === "0")) {
+            } else if ((msg.payload == 0) || (msg.payload.toString().toLowerCase() === "0") || msg.topic == "speed") {
               io.digitalWrite(node.pinA, 1);
               io.digitalWrite(node.pinB, 1);
               io.analogWrite(node.pinE, 0);
 
             }
-            debug(node.speed, node.pinE);
+            debug("last" + node.speed);
 
 
           } catch (inputExp) {
