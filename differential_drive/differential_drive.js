@@ -2,9 +2,12 @@ module.exports = function(RED) {
   function differential_driveNode(config) {
     RED.nodes.createNode(this, config);
     var node = this;
-
+    this.motion = parseInt(config.motion);
+    this.turn = parseInt(config.turn);
     this.on('input', function(msg) {
-      if (msg.topic.toLowerCase() == "turn") {
+      msg.payload = config.turn
+      msg.payload = config.motion
+      if (msg.topic.toLowerCase() == "turn" || config.turn) {
         if (msg.payload.toLowerCase() == "left") {
           var Lmotor = {
             payload: 1
@@ -12,7 +15,7 @@ module.exports = function(RED) {
           var Rmotor = {
             payload: 1
           };
-        } else if (msg.payload.toLowerCase() == "right") {
+        } else if (msg.payload.toLowerCase() == "right" || config.motion) {
           var Lmotor = {
             payload: -1
           };

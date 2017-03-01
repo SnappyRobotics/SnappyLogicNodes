@@ -6,10 +6,10 @@ const nodered_container = require('nodered_container');
 
 const debug = require('debug')('SnappyLogicNodes:gulpfile');
 
-gulp.task('installRED', function (done) {
+gulp.task('installRED', function(done) {
   var dir = __dirname;
 
-  nodered_container.check(dir, function (err) {
+  nodered_container.check(dir, function(err) {
     if (err) {
       throw err
     }
@@ -18,11 +18,11 @@ gulp.task('installRED', function (done) {
   });
 })
 
-gulp.task('watch', function () {
+gulp.task('watch', function() {
   gulp.watch(['differential_drive/**', 'test/**'], ['mocha-watch'])
 });
 
-gulp.task('mocha', function (done) {
+gulp.task('mocha', function(done) {
   debug("running mocha")
   return gulp.src(['test/**/*_spec.js'], {
       read: false
@@ -31,7 +31,7 @@ gulp.task('mocha', function (done) {
       reporter: 'spec'
     }))
     .on('error', gutil.log)
-    .on('end', function () {
+    .on('end', function() {
       debug("mocha done")
       done();
       process.exit()
@@ -39,7 +39,7 @@ gulp.task('mocha', function (done) {
     })
 });
 
-gulp.task('mocha-watch', function (done) {
+gulp.task('mocha-watch', function(done) {
   debug("running mocha")
   return gulp.src(['test/**/*_spec.js'], {
       read: false
@@ -48,7 +48,7 @@ gulp.task('mocha-watch', function (done) {
       reporter: 'spec'
     }))
     .on('error', gutil.log)
-    .on('end', function () {
+    .on('end', function() {
       debug("mocha done")
     })
 });

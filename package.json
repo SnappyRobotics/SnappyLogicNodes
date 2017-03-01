@@ -16,13 +16,11 @@
     "email": "adarsh.sb18@gmail.com",
     "url": "https://github.com/Belavatagi"
   },
-  "contributors": [
-    {
-      "name": "Prajankya Sonar",
-      "email": "contact@prajankya.me",
-      "url": "https://prajankya.me/"
-    }
-  ],
+  "contributors": [{
+    "name": "Prajankya Sonar",
+    "email": "contact@prajankya.me",
+    "url": "https://prajankya.me/"
+  }],
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/SnappyRobotics/SnappyLogicNodes/issues"
