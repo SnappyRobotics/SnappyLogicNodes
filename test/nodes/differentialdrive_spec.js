@@ -1,6 +1,6 @@
 var should = require("should");
 var helper = require('../helper.js');
-var differential_drive = require("../../differential_drive/differential_drive.js");
+var differential_drive = require("/../../nodes/differential_drive/differential_drive.js");
 
 describe('testing differential drive', function() {
 
