@@ -66,11 +66,7 @@ module.exports = function(RED) {
           [Lmotor],
           [Rmotor]
         ]);
-
-
       }
-
-
     });
   }
   RED.nodes.registerType("differential drive", differential_driveNode);
