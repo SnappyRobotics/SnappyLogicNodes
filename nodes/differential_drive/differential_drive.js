@@ -31,7 +31,7 @@ module.exports = function(RED) {
         ]);
       }
       if ((msg.topic.toLowerCase() == "motion") || (config.motion)) {
-        config.motion = msg.payload;
+        config.motion = msg.payload.toLowerCase();
         if (config.motion.toLowerCase() == "forward") {
           var Lmotor = {
             payload: -1
@@ -56,7 +56,8 @@ module.exports = function(RED) {
           [Rmotor]
         ]);
       }
-      if (msg.payload.toLowerCase() == "break") {
+
+      if (msg.payload.toLowerCase() == "break" || (config.motion.toLowerCase() == "break") || (config.turn.toLowerCase() == "break")) {
         var Lmotor = {
           payload: 0
         };
