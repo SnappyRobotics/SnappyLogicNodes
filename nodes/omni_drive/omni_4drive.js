@@ -45,7 +45,7 @@ module.exports = function(RED) {
           var Bmotor = {
             payload: -1
           };
-        } else if ((msg.payload.toLowerCase() == "right") || (config.turn.toLowerCase() == "left")) {
+        } else if ((msg.payload.toLowerCase() == "right") || (config.turn.toLowerCase() == "right")) {
           var Lmotor = {
             payload: 0
           };
