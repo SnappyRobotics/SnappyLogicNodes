@@ -9,14 +9,14 @@ module.exports = function(RED) {
       // msg.payload = config.motion
       if ((msg.topic.toLowerCase() == "turn") || (config.turn)) {
         config.turn = msg.payload.toLowerCase();
-        if ((msg.payload.toLowerCase() == "left") || (config.turn.toLowerCase() == "left")) {
+        if (config.turn.toLowerCase() == "left") {
           var Lmotor = {
             payload: 1
           };
           var Rmotor = {
             payload: 1
           };
-        } else if ((msg.payload.toLowerCase() == "right") || (config.turn.toLowerCase() == "right")) {
+        } else if (config.turn.toLowerCase() == "right") {
           var Lmotor = {
             payload: -1
           };
@@ -32,7 +32,7 @@ module.exports = function(RED) {
       }
       if ((msg.topic.toLowerCase() == "motion") || (config.motion)) {
         config.motion = msg.payload;
-        if ((msg.payload.toLowerCase() == "forward") || (config.motion.toLowerCase() == "forward")) {
+        if (config.motion.toLowerCase() == "forward") {
           var Lmotor = {
             payload: -1
           };
@@ -41,7 +41,7 @@ module.exports = function(RED) {
             payload: 1
           };
 
-        } else if ((msg.payload.toLowerCase() == "reverse") || (config.motion.toLowerCase() == "reverse")) {
+        } else if (config.motion.toLowerCase() == "reverse") {
           var Lmotor = {
             payload: 1
           };
