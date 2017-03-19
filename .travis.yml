@@ -3,11 +3,10 @@ node_js:
   - "node"
 before_script:
   - npm run installRED
-  - npm install
-#cache:
-#  bundler: true
-#  directories:
-#  - node_modules # NPM packages
+cache:
+  bundler: true
+  directories:
+  - node_modules # NPM packages
 notifications:
   email: false
   slack: snappyrobotics:hnC94BBFxWP0egOTG39EX3Jc
