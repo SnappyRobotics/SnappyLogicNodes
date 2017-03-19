@@ -39,9 +39,10 @@
     "http": "0.0.0"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0",
     "gulp": "^3.9.1",
-    "should": "^11.1.2",
-    "gulp-mocha": "^3.0.1"
+    "gulp-istanbul": "^1.1.1",
+    "gulp-mocha": "^3.0.1",
+    "nodemon": "^1.11.0",
+    "should": "^11.1.2"
   }
 }
