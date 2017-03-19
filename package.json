@@ -1,11 +1,11 @@
 {
-  "name": "node-red-contrib-snappylogicnodes",
-  "version": "1.0.0",
+  "name": "node-red-contrib-snappy-logic",
+  "version": "0.2.245",
   "description": "Node red nodes for logic for snappy",
   "scripts": {
-    "installRED": "DEBUG=NodeRed_Container:*,SnappyLogicNodes:* gulp installRED",
-    "serve": "DEBUG=NodeRed_Container:*,SnappyLogicNodes:* nodemon run.js",
-    "test": "DEBUG=SnappyLogicNodes:* gulp mocha"
+    "installRED": "npm install node-red/node-red && cd node_modules/node-red && npm i  && node_modules/.bin/grunt build",
+    "serve": "DEBUG=snappy:logic:* nodemon .",
+    "test": "DEBUG=snappy:logic:* gulp mocha"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,11 @@
       "url": "https://prajankya.me/"
     }
   ],
+  "node-red": {
+    "nodes": {
+      "differential_drive": "differential_drive/differential_drive.js"
+    }
+  },
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/SnappyRobotics/SnappyLogicNodes/issues"
@@ -30,13 +35,10 @@
   "homepage": "https://github.com/SnappyRobotics/SnappyLogicNodes#readme",
   "dependencies": {
     "debug": "^2.6.0",
-    "gulp-util": "^3.0.8",
-    "node-red-contrib-gpio": "^0.9.2",
-    "nodered_container": "^2.0.41"
+    "express": "^4.15.2",
+    "http": "0.0.0"
   },
   "devDependencies": {
-    "johnny-five": "^0.10.6",
-    "firmata": "^0.15.0",
     "lodash": "^4.11.1",
     "chai": "^3.5.0",
     "nodemon": "^1.11.0",
