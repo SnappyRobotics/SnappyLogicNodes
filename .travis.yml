@@ -2,13 +2,8 @@ language: node_js
 node_js:
   - "node"
 before_script:
-  - npm install
-  - npm install -g gulp
-  #- npm install
-script:
-  - npm install
   - npm run installRED
-  - npm test
+  - npm install
 #cache:
 #  bundler: true
 #  directories:
