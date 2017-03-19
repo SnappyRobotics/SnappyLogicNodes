@@ -25,8 +25,8 @@
   ],
   "node-red": {
     "nodes": {
-      "differential_drive": "differential_drive/differential_drive.js",
-      "omni_4drive": "omni_4drive/omni_4drive.js"
+      "differential_drive": "nodes/differential_drive/differential_drive.js",
+      "omni_4drive": "nodes/omni_4drive/omni_4drive.js"
     }
   },
   "license": "GPL-3.0",
