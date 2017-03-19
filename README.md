@@ -1,15 +1,14 @@
-# SnappyLogicNodes
-Branch - Master : [![Build Status](https://travis-ci.org/SnappyRobotics/SnappyLogicNodes.svg?branch=master)](https://travis-ci.org/SnappyRobotics/SnappyLogicNodes)
+# snappy-logic-nodes
+Node red nodes for logic for snappy
+
+Branch - Master : [![Build Status](https://travis-ci.org/SnappyRobotics/snappy-logic-nodes.svg?branch=master)](https://travis-ci.org/SnappyRobotics/snappy-logic-nodes)
 
 Branch - Develop :
-[![Build Status](https://travis-ci.org/SnappyRobotics/SnappyLogicNodes.svg?branch=develop)](https://travis-ci.org/SnappyRobotics/SnappyLogicNodes)
+[![Build Status](https://travis-ci.org/SnappyRobotics/snappy-logic-nodes.svg?branch=develop)](https://travis-ci.org/SnappyRobotics/snappy-logic-nodes)
 
 
 Test Coverage [![Coverage Status](https://coveralls.io/repos/github/SnappyRobotics/snappy-logic-nodes/badge.svg)](https://coveralls.io/github/SnappyRobotics/snappy-logic-nodes)
 
-
-##Install via NPM
-``npm install node-red-contrib-snappylogicnodes``
 
 ## Nodes
 **Dc Motor Node**       
