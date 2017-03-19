@@ -5,6 +5,8 @@ Branch - Develop :
 [![Build Status](https://travis-ci.org/SnappyRobotics/SnappyLogicNodes.svg?branch=develop)](https://travis-ci.org/SnappyRobotics/SnappyLogicNodes)
 
 
+Test Coverage [![Coverage Status](https://coveralls.io/repos/github/SnappyRobotics/snappy-logic-nodes/badge.svg)](https://coveralls.io/github/SnappyRobotics/snappy-logic-nodes)
+
 
 ##Install via NPM
 ``npm install node-red-contrib-snappylogicnodes``

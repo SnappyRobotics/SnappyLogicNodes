@@ -11,16 +11,16 @@
     "type": "git",
     "url": "git+https://github.com/SnappyRobotics/snappy-logic-nodes.git"
   },
-  "author": {
-    "name": "Adarsh Belavatagi",
-    "email": "adarsh.sb18@gmail.com",
-    "url": "https://github.com/Belavatagi"
-  },
   "contributors": [
     {
       "name": "Prajankya Sonar",
       "email": "contact@prajankya.me",
       "url": "https://prajankya.me/"
+    },
+    {
+      "name": "Adarsh Belavatagi",
+      "email": "adarsh.sb18@gmail.com",
+      "url": "https://github.com/Belavatagi"
     }
   ],
   "node-red": {
