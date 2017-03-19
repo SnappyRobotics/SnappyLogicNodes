@@ -31,11 +31,12 @@ gulp.task('mocha', ['pre-test'], function() {
         dir: './coverage'
       }
     }))
-    .pipe(istanbul.enforceThresholds({
-      thresholds: {
-        global: 90
-      }
-    }))
+  // To enforce the coverage
+  // .pipe(istanbul.enforceThresholds({
+  //   thresholds: {
+  //     global: 90
+  //   }
+  // }))
 })
 
 gulp.task('coverage', ['mocha'], function(done) {
