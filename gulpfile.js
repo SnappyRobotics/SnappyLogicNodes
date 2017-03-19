@@ -15,7 +15,7 @@ gulp.task('pre-test', function() {
   // Force `require` to return covered files
 });
 
-gulp.task('mocha', ['pre-test'], function(done) {
+gulp.task('mocha', ['pre-test'], function() {
   debug("running mocha")
   return gulp.src(['test/**/*_spec.js'], {
       read: false
@@ -31,25 +31,13 @@ gulp.task('mocha', ['pre-test'], function(done) {
         dir: './coverage'
       }
     }))
-    .on('error', function(e) {
-      debug(e)
-    })
-    .on('end', function() {
-      debug("mocha done")
-      //  done()
-    })
 });
 gulp.task('coverage', ['mocha'], function(done) {
   debug("running coverage")
-  gulp.src('coverage/**/lcov.info')
+  gulp.src('coverage/lcov.info')
     .pipe(coveralls())
-    .on('end', function() {
-      debug("coverage sent to coverall")
+    .on("finish", function() {
+      debug("Done coverage")
       done()
-      //process.exit()
-    })
-    .on('error', function(e) {
-      debug("coverage cannot be sent to coverall", e)
-      process.exit(e)
     })
 })
