@@ -8,7 +8,7 @@ const debug = require('debug')('snappy:logic:gulpfile')
 
 
 gulp.task('pre-test', function() {
-  return gulp.src(['differential_drive/**/*.js'])
+  return gulp.src(['differential_drive/**/*.js', 'omni_drive/**/*.js'])
     // Covering files
     .pipe(istanbul())
     .pipe(istanbul.hookRequire())
@@ -26,12 +26,18 @@ gulp.task('mocha', ['pre-test'], function() {
     // Creating the reports after tests ran
     .pipe(istanbul.writeReports({
       dir: './coverage',
-      reporters: ['lcov'],
+      reporters: ['lcov', 'json', 'text', 'text-summary'],
       reportOpts: {
         dir: './coverage'
       }
     }))
-});
+    .pipe(istanbul.enforceThresholds({
+      thresholds: {
+        global: 90
+      }
+    }))
+})
+
 gulp.task('coverage', ['mocha'], function(done) {
   debug("running coverage")
   gulp.src('coverage/lcov.info')
