@@ -8,7 +8,7 @@ const debug = require('debug')('snappy:logic:gulpfile')
 
 
 gulp.task('pre-test', function() {
-  return gulp.src(['differential_drive/**/*.js', 'omni_drive/**/*.js'])
+  return gulp.src(['nodes/**/*.js'])
     // Covering files
     .pipe(istanbul())
     .pipe(istanbul.hookRequire())
