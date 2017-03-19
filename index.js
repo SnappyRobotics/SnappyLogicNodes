@@ -15,7 +15,8 @@ var server = http.createServer(app);
 var settings = {
   httpAdminRoot: "/",
   httpNodeRoot: "/api",
-  userDir: "/home/" + process.env.USER + "/.nodered/",
+  nodesDir: [__dirname],
+  userDir: "/home/" + process.env.USER + "/.node-red/",
   functionGlobalContext: {} // enables global context
 };
 
