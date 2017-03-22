@@ -1,6 +1,6 @@
 var should = require("should");
 var helper = require('../helper.js');
-var omni_4drive = require("../../nodes/omni_drive/omni_4drive.js");
+var omni_4drive = require("../../nodes/omni_4drive/omni_4drive.js");
 
 describe('testing omni 4drive', function() {
 
