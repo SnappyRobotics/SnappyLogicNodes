@@ -1,6 +1,6 @@
 <script type="text/javascript">
-	RED.nodes.registerType('lower-case', {
-		category: 'function',
+	RED.nodes.registerType('differential-drive', {
+		category: 'snappy',
 		color: '#a6bbcf',
 		defaults: {
 			name: {
@@ -9,20 +9,89 @@
 		},
 		inputs: 1,
 		outputs: 1,
-		icon: "file.png",
+		icon: "diff.png",
 		label: function() {
-			return this.name || "lower-case";
+			return this.name || "differential-drive";
 		}
 	});
 </script>
 
-<script type="text/x-red" data-template-name="lower-case">
+<script type="text/x-red" data-template-name="differential-drive">
 	<div class="form-row">
-		<label for="node-input-name"><i class="icon-tag"></i> Name</label>
+		<label for="node-input-name">
+			<i class="icon-tag"></i> Name</label>
 		<input type="text" id="node-input-name" placeholder="Name">
 	</div>
 </script>
 
-<script type="text/x-red" data-help-name="lower-case">
-	<p>A simple node that converts the message payloads into all lower-case characters</p>
+<script type="text/x-red" data-help-name="differential-drive">
+	<p>A node which takes in JSON data and outputs for two motor to be driven in differential drive</p>
+	<h3>Inputs</h3>
+	<dl class="message-properties">
+		<dt>payload
+			<span class="property-type">object</span>
+		</dt>
+		<dd> the payload of the message to be in the form: </dd>
+		<pre id="msg_format">{
+  <span class="key">"linear":</span> {
+    <span class="key">"x":</span> <span class="number">0</span>,
+    <span class="key">"y":</span> <span class="number">0</span>,
+    <span class="key">"z":</span> <span class="number">0</span>
+  },
+  <span class="key">"angular":</span> {
+    <span class="key">"x":</span> <span class="number">0</span>,
+    <span class="key">"y":</span> <span class="number">0</span>,
+    <span class="key">"z":</span> <span class="number">0</span>
+  }
+}</pre>
+
+		<dt class="optional">topic
+			<span class="property-type">string</span>
+		</dt>
+		<dd> the message topic to publish to.</dd>
+	</dl>
+
+	<h3>Outputs</h3>
+	<ol class="node-ports">
+		<li>Right Motor
+			<dl class="message-properties">
+				<dt>payload
+					<span class="property-type">object</span>
+				</dt>
+				<dd>Right motor output.</dd>
+			</dl>
+		</li>
+		<li>Left Motor
+			<dl class="message-properties">
+				<dt>payload
+					<span class="property-type">object</span>
+				</dt>
+				<dd>Left motor output</dd>
+			</dl>
+		</li>
+	</ol>
+
+
+	<style>
+		.key {
+			// color: #CC0000;
+		}
+
+		.string {
+			color: #007777;
+		}
+
+		.number {
+			color: #AA00AA;
+		}
+
+		.boolean {
+			color: #0000FF;
+		}
+
+		.null {
+			color: #0000FF;
+			font-weight: bold;
+		}
+	</style>
 </script>
