@@ -1,50 +1,57 @@
 {
-  "name": "snappy-logic-nodes",
-  "version": "0.2.548",
-  "description": "Node red nodes for logic for snappy",
-  "scripts": {
-    "installRED": "npm install node-red/node-red && cd node_modules/node-red && npm i  && node_modules/.bin/grunt build",
-    "serve": "DEBUG=snappy:logic:* nodemon .",
-    "test": "DEBUG=snappy:logic:* gulp coverage"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SnappyRobotics/snappy-logic-nodes.git"
-  },
-  "contributors": [
-    {
-      "name": "Prajankya Sonar",
-      "email": "contact@prajankya.me",
-      "url": "https://prajankya.me/"
+	"name": "snappy-logic-nodes",
+	"version": "0.2.548",
+	"description": "Node red nodes for logic for snappy",
+	"scripts": {
+		"red": "DEBUG=snappy:logic:* node-red",
+		"test": "DEBUG=snappy:logic:* grunt test",
+		"snyk-protect": "snyk protect",
+		"prepublish": "npm run snyk-protect"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SnappyRobotics/snappy-logic-nodes.git"
+	},
+	"contributors": [
+		{
+			"name": "Prajankya Sonar",
+			"email": "contact@prajankya.me",
+			"url": "https://prajankya.me/"
     },
-    {
-      "name": "Adarsh Belavatagi",
-      "email": "adarsh.sb18@gmail.com",
-      "url": "https://github.com/Belavatagi"
+		{
+			"name": "Adarsh Belavatagi",
+			"email": "adarsh.sb18@gmail.com",
+			"url": "https://github.com/Belavatagi"
     }
   ],
-  "node-red": {
-    "nodes": {
-      "differential_drive": "nodes/differential_drive/differential_drive.js",
-      "omni_4drive": "nodes/omni_4drive/omni_4drive.js"
-    }
-  },
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/SnappyRobotics/snappy-logic-nodes/issues"
-  },
-  "homepage": "https://github.com/SnappyRobotics/snappy-logic-nodes#readme",
-  "dependencies": {
-    "debug": "^2.6.0",
-    "express": "^4.15.2",
-    "http": "0.0.0"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-coveralls": "^0.1.4",
-    "gulp-istanbul": "^1.1.1",
-    "gulp-mocha": "^3.0.1",
-    "nodemon": "^1.11.0",
-    "should": "^11.1.2"
-  }
+	"node-red": {
+		"nodes": {
+			"differential_drive": "nodes/differential_drive/differential_drive.js",
+			"omni_4drive": "nodes/omni_4drive/omni_4drive.js"
+		}
+	},
+	"keywords": [
+    "differential",
+    "differential drive",
+    "drive",
+    "ros",
+    "snappy"
+  ],
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/SnappyRobotics/snappy-logic-nodes/issues"
+	},
+	"homepage": "https://github.com/SnappyRobotics/snappy-logic-nodes#readme",
+	"dependencies": {
+		"debug": "^2.6.0"
+	},
+	"devDependencies": {
+		"express": "^4.15.2",
+		"grunt": "^1.0.1",
+		"grunt-bump": "^0.8.0",
+		"grunt-contrib-jshint": "^1.1.0",
+		"istanbul": "^0.4.5",
+		"should": "^11.1.2",
+		"snyk": "^1.28.1"
+	}
 }
