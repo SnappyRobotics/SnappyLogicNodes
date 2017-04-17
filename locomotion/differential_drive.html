@@ -8,7 +8,7 @@
 			}
 		},
 		inputs: 1,
-		outputs: 1,
+		outputs: 2,
 		icon: "diff.png",
 		label: function() {
 			return this.name || "differential-drive";
@@ -26,11 +26,17 @@
 
 <script type="text/x-red" data-help-name="differential-drive">
 	<p>A node which takes in JSON data and outputs for two motor to be driven in differential drive</p>
+
+	<b>Note:</b> All the values below are velocities (so constant
+	<b>x</b> will make the motors move)
+
 	<h3>Inputs</h3>
 	<dl class="message-properties">
 		<dt>payload
 			<span class="property-type">object</span>
 		</dt>
+
+		<br>
 		<dd> the payload of the message to be in the form: </dd>
 		<pre id="msg_format">{
   <span class="key">"linear":</span> {
