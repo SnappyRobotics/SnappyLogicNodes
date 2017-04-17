@@ -4,9 +4,7 @@
 	"description": "Node red nodes for logic for snappy",
 	"scripts": {
 		"red": "DEBUG=snappy:logic:* node-red",
-		"test": "DEBUG=snappy:logic:* grunt test",
-		"snyk-protect": "snyk protect",
-		"prepublish": "npm run snyk-protect"
+		"test": "DEBUG=snappy:logic:* grunt test"
 	},
 	"repository": {
 		"type": "git",
