@@ -1,23 +1,26 @@
+'use strict';
+
 module.exports = function(RED) {
-  function differential_driveNode(config) {
+  var differential_driveNode = function(config) {
     RED.nodes.createNode(this, config);
     var node = this;
 
     this.on('input', function(msg) {
+      var Lmotor, Rmotor;
       if (msg.topic.toLowerCase() == "turn") {
         if (msg.payload.toLowerCase() == "left") {
-          var Lmotor = {
+          Lmotor = {
             payload: 1
           };
-          var Rmotor = {
+          Rmotor = {
             payload: 1
           };
         } else if (msg.payload.toLowerCase() == "right") {
-          var Lmotor = {
+          Lmotor = {
             payload: -1
           };
 
-          var Rmotor = {
+          Rmotor = {
             payload: -1
           };
         }
@@ -28,20 +31,20 @@ module.exports = function(RED) {
       }
       if (msg.topic.toLowerCase() == "motion") {
         if (msg.payload.toLowerCase() == "forward") {
-          var Lmotor = {
+          Lmotor = {
             payload: -1
           };
 
-          var Rmotor = {
+          Rmotor = {
             payload: 1
           };
 
         } else if (msg.payload.toLowerCase() == "reverse") {
-          var Lmotor = {
+          Lmotor = {
             payload: 1
           };
 
-          var Rmotor = {
+          Rmotor = {
             payload: -1
           };
 
@@ -52,22 +55,18 @@ module.exports = function(RED) {
         ]);
       }
       if (msg.payload.toLowerCase() == "break") {
-        var Lmotor = {
+        Lmotor = {
           payload: 0
         };
 
-        var Rmotor = {
+        Rmotor = {
           payload: 0
         };
         this.send([
           [Lmotor],
           [Rmotor]
         ]);
-
-
       }
-
-
     });
   }
   RED.nodes.registerType("differential drive", differential_driveNode);
