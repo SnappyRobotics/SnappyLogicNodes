@@ -1,10 +1,15 @@
 <script type="text/javascript">
 	RED.nodes.registerType('differential-drive', {
 		category: 'snappy',
-		color: '#a6bbcf',
+		color: '#e7e7ae',
 		defaults: {
 			name: {
 				value: ""
+			},
+			gain: {
+				value: 1,
+				required: true,
+				validate: RED.validators.number()
 			}
 		},
 		inputs: 1,
@@ -19,8 +24,18 @@
 <script type="text/x-red" data-template-name="differential-drive">
 	<div class="form-row">
 		<label for="node-input-name">
-			<i class="icon-tag"></i> Name</label>
+			<i class="fa fa-tag"></i> Name
+		</label>
 		<input type="text" id="node-input-name" placeholder="Name">
+	</div>
+	<div class="form-row">
+		<label for="node-input-gain">
+			<i class="fa fa-location-arrow"></i> Gain
+		</label>
+		<input type="text" id="node-input-gain">
+	</div>
+	<div class="form-tips">
+		<b>Tip:</b> Gain can be used to control the speed.
 	</div>
 </script>
 
