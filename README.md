@@ -1,26 +1,40 @@
 # snappy-logic-nodes
-Node red nodes for logic for snappy
-
-Branch - Master : [![Build Status](https://travis-ci.org/SnappyRobotics/snappy-logic-nodes.svg?branch=master)](https://travis-ci.org/SnappyRobotics/snappy-logic-nodes)
-
-Branch - Develop :
-[![Build Status](https://travis-ci.org/SnappyRobotics/snappy-logic-nodes.svg?branch=develop)](https://travis-ci.org/SnappyRobotics/snappy-logic-nodes)
+Node-RED logic nodes for snappy	 project
 
 
-Test Coverage [![Coverage Status](https://coveralls.io/repos/github/SnappyRobotics/snappy-logic-nodes/badge.svg)](https://coveralls.io/github/SnappyRobotics/snappy-logic-nodes)
+## Badges
+[![Build Status](https://travis-ci.org/SnappyRobotics/snappy-logic-nodes.svg?branch=master)](https://travis-ci.org/SnappyRobotics/snappy-logic-nodes)
+[![Coverage Status](https://coveralls.io/repos/github/SnappyRobotics/snappy-logic-nodes/badge.svg)](https://coveralls.io/github/SnappyRobotics/snappy-logic-nodes)
+[![dependencies Status](https://david-dm.org/SnappyRobotics/snappy-logic-nodes/status.svg)](https://david-dm.org/SnappyRobotics/snappy-logic-nodes)
+[![Known Vulnerabilities](https://snyk.io/test/github/snappyrobotics/snappy-logic-nodes/badge.svg)](https://snyk.io/test/github/snappyrobotics/snappy-snappy-logic-nodes)
 
 
-## Nodes
-**Dc Motor Node**       
-![dcmotor](https://cloud.githubusercontent.com/assets/16568687/22851264/352b9008-f042-11e6-9f48-7650b13e2e78.png)    
-**Differential Drive**      
-![diff](https://cloud.githubusercontent.com/assets/16568687/22851275/c97838e2-f042-11e6-8209-8f4ff8c14f9f.png)
-## Geting Started
-###Dc Motor   
-![rsz_1](https://cloud.githubusercontent.com/assets/16568687/22851432/6ea48056-f047-11e6-98da-fb32178579f1.png)
 
-**Node configuration**  
-![rsz_3](https://cloud.githubusercontent.com/assets/16568687/22851508/d2f16b94-f049-11e6-9e7b-2a581e3a9124.png)
+[![npm](https://img.shields.io/npm/dt/snappy-logic-nodes.svg)](https://npmjs.com/package/snappy-logic-nodes/)
+[![GitHub tag](https://img.shields.io/github/tag/SnappyRobotics/snappy-logic-nodes.svg)](https://github.com/SnappyRobotics/snappy-logic-nodes)
+[![license](https://img.shields.io/github/license/SnappyRobotics/snappy-logic-nodes.svg)]()
+[![npm](https://img.shields.io/npm/v/npm.svg)]()
 
-###Differential Drive   
-![rsz_2](https://cloud.githubusercontent.com/assets/16568687/22851535/f1c7e3da-f04a-11e6-8a65-92aca6ea5116.png)
+
+
+[![NPM](https://nodei.co/npm/snappy-logic-nodes.png?downloads=true&stars=true)](https://nodei.co/npm/snappy-logic-nodes/)
+
+
+## Prerequisites
+- Node-RED
+
+
+### Install
+To install the stable version run the following command in your Node-RED user directory (typically `~/.node-red`):
+
+    npm i snappy-logic-nodes
+
+Open your Node-RED instance and you should have all the snappy-logic nodes available in the palette.
+
+If you want to try the latest version from github, you can install it by
+
+    npm i SnappyRobotics/snappy-logic-nodes
+
+## Nodes :
+
+### Differential Drive
