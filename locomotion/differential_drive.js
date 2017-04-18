@@ -32,7 +32,7 @@ module.exports = function(RED) {
 
       debug('speed out:', right_speed_out, left_speed_out)
 
-      if (x == 0 && z == 0) {
+      if (x === 0 && z === 0) {
         outputs[0].payload.speed = 0
         outputs[1].payload.speed = 0
         outputs[0].payload.brake = true
