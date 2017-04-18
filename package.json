@@ -1,55 +1,56 @@
 {
-	"name": "snappy-logic-nodes",
-	"version": "0.3.247",
-	"description": "Node red nodes for logic for snappy",
-	"scripts": {
-		"red": "DEBUG=snappy:logic:* node-red",
-		"test": "DEBUG=snappy:logic:* grunt test"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/SnappyRobotics/snappy-logic-nodes.git"
-	},
-	"contributors": [
-		{
-			"name": "Prajankya Sonar",
-			"email": "contact@prajankya.me",
-			"url": "https://prajankya.me/"
+  "name": "snappy-logic-nodes",
+  "version": "0.4.397",
+  "description": "Node red nodes for logic for snappy",
+  "scripts": {
+    "red": "DEBUG=snappy:logic:* node-red",
+    "test": "DEBUG=snappy:logic:* grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SnappyRobotics/snappy-logic-nodes.git"
+  },
+  "contributors": [
+    {
+      "name": "Prajankya Sonar",
+      "email": "contact@prajankya.me",
+      "url": "https://prajankya.me/"
     },
-		{
-			"name": "Adarsh Belavatagi",
-			"email": "adarsh.sb18@gmail.com",
-			"url": "https://github.com/Belavatagi"
+    {
+      "name": "Adarsh Belavatagi",
+      "email": "adarsh.sb18@gmail.com",
+      "url": "https://github.com/Belavatagi"
     }
   ],
-	"node-red": {
-		"nodes": {
-			"differential_drive": "locomotion/differential_drive.js"
-		}
-	},
-	"keywords": [
+  "node-red": {
+    "nodes": {
+      "differential_drive": "locomotion/differential_drive.js"
+    }
+  },
+  "keywords": [
     "differential",
     "differential drive",
     "drive",
     "ros",
+		"node-red",
     "snappy"
   ],
-	"license": "GPL-3.0",
-	"bugs": {
-		"url": "https://github.com/SnappyRobotics/snappy-logic-nodes/issues"
-	},
-	"homepage": "https://github.com/SnappyRobotics/snappy-logic-nodes#readme",
-	"dependencies": {
-		"debug": "^2.6.0"
-	},
-	"devDependencies": {
-		"express": "^4.15.2",
-		"grunt": "^1.0.1",
-		"grunt-bump": "^0.8.0",
-		"grunt-contrib-jshint": "^1.1.0",
-		"istanbul": "^0.4.5",
-		"should": "^11.1.2",
-		"snyk": "^1.28.1"
-	},
-	"snyk": true
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/SnappyRobotics/snappy-logic-nodes/issues"
+  },
+  "homepage": "https://github.com/SnappyRobotics/snappy-logic-nodes#readme",
+  "dependencies": {
+    "debug": "^2.6.0"
+  },
+  "devDependencies": {
+    "express": "^4.15.2",
+    "grunt": "^1.0.1",
+    "grunt-bump": "^0.8.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "istanbul": "^0.4.5",
+    "should": "^11.1.2",
+    "snyk": "^1.28.1"
+  },
+  "snyk": true
 }
