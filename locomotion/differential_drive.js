@@ -22,13 +22,23 @@ module.exports = function(RED) {
       }
     })
 
+    var constrain = function(num) {
+      if (num < -255) {
+        return -255;
+      } else if (num > 255) {
+        return 255;
+      } else {
+        return num;
+      }
+    }
+
     var processInput = function(msg) {
       var x = msg.payload.linear.x * config.gain
       var z = msg.payload.angular.z * config.gain
 
       debug('x, z :', x, z)
-      var right_speed_out = x + (z * config.wheel_distance / 2)
-      var left_speed_out = x - (z * config.wheel_distance / 2)
+      var right_speed_out = constrain(x + (z * config.wheel_distance / 2))
+      var left_speed_out = constrain(x - (z * config.wheel_distance / 2))
 
       debug('speed out:', right_speed_out, left_speed_out)
 
