@@ -6,17 +6,20 @@ module.exports = function(RED) {
   var diffNode = function(config) {
     RED.nodes.createNode(this, config);
     var node = this;
+
+    var processInput = function(msg) {
+
+      node.send(msg)
+    }
+
     this.on('input', function(msg) {
-      debug(msg.payload.angular.z)
       if (msg.payload &&
         msg.payload.linear &&
-        msg.payload.linear.x != undefined &&
+        msg.payload.linear.x !== undefined &&
         msg.payload.angular &&
-        msg.payload.angular.z != undefined) {
+        msg.payload.angular.z !== undefined) {
 
-        debug("received")
-        node.send(msg)
-
+        processInput(msg)
       } else {
         node.status({
           fill: "red",
@@ -25,12 +28,9 @@ module.exports = function(RED) {
         })
         setTimeout(function() {
           node.status({})
-        }, 3000);
+        }, 3000)
       }
-
-      debug(msg)
-
-    });
+    })
   }
   RED.nodes.registerType("differential-drive", diffNode);
 }
