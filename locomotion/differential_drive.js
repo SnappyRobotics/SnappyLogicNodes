@@ -7,12 +7,14 @@ module.exports = function(RED) {
     RED.nodes.createNode(this, config);
     var node = this;
     this.on('input', function(msg) {
+      debug(msg.payload.angular.z)
       if (msg.payload &&
         msg.payload.linear &&
-        msg.payload.linear.x != null &&
+        msg.payload.linear.x != undefined &&
         msg.payload.angular &&
-        msg.payload.angular.z != null) {
+        msg.payload.angular.z != undefined) {
 
+        debug("received")
         node.send(msg)
 
       } else {

@@ -42,7 +42,10 @@
 <script type="text/x-red" data-help-name="differential-drive">
 	<p>A node which takes in JSON data and outputs for two motor to be driven in differential drive</p>
 
-	<b>Note:</b> All the values below are velocities (so constant
+	<b>Note:</b> All the values below are
+	<b style="font-size:20px">
+		velocities
+	</b> (so constant value of
 	<b>x</b> will make the motors move)
 
 	<h3>Inputs</h3>
@@ -56,6 +59,23 @@
 		<pre id="msg_format">{
   <span class="key">"linear":</span> {
     <span class="key">"x":</span> <span class="number">0</span>,
+  },
+  <span class="key">"angular":</span> {
+    <span class="key">"z":</span> <span class="number">0</span>
+  }
+}</pre>
+		<br> Where
+		<strong>linear.x</strong> is the
+		<i>velocity</i> of going forward and
+		<strong>angular.z</strong> is the
+		<i>angular velocity</i> of rotation
+
+		<br>
+		<br>
+		<br> So it accepts ROS geometry_msgs/Twist message of the format :
+		<pre id="msg_format">{
+  <span class="key">"linear":</span> {
+    <span class="key">"x":</span> <span class="number">0</span>,
     <span class="key">"y":</span> <span class="number">0</span>,
     <span class="key">"z":</span> <span class="number">0</span>
   },
@@ -66,10 +86,6 @@
   }
 }</pre>
 
-		<dt class="optional">topic
-			<span class="property-type">string</span>
-		</dt>
-		<dd> the message topic to publish to.</dd>
 	</dl>
 
 	<h3>Outputs</h3>
