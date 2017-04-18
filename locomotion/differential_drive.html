@@ -10,6 +10,11 @@
 				value: 1,
 				required: true,
 				validate: RED.validators.number()
+			},
+			wheel_distance: {
+				value: 1,
+				required: true,
+				validate: RED.validators.number()
 			}
 		},
 		inputs: 1,
@@ -33,9 +38,23 @@
 			<i class="fa fa-location-arrow"></i> Gain
 		</label>
 		<input type="text" id="node-input-gain">
+		<br>
+		<br>
+		<div class="form-tips">
+			<b>Tip:</b> Gain can be used to control the speed.
+		</div>
 	</div>
-	<div class="form-tips">
-		<b>Tip:</b> Gain can be used to control the speed.
+
+	<div class="form-row">
+		<label for="node-input-wheel_distance">
+			Wheel distance
+		</label>
+		<input type="text" id="node-input-wheel_distance">
+		<br>
+		<br>
+		<div class="form-tips">
+			<i>This is the distance between two wheels(in meters)</i>
+		</div>
 	</div>
 </script>
 
@@ -92,23 +111,42 @@
 	<ol class="node-ports">
 		<li>Right Motor
 			<dl class="message-properties">
-				<dt>payload
-					<span class="property-type">object</span>
-				</dt>
-				<dd>Right motor output.</dd>
+				<dd>Right motor output.(Upper output)</dd>
+				<br>
 			</dl>
 		</li>
 		<li>Left Motor
 			<dl class="message-properties">
-				<dt>payload
-					<span class="property-type">object</span>
-				</dt>
-				<dd>Left motor output</dd>
+				<dd>Left motor output.(Lower output)</dd>
+				<br>
 			</dl>
 		</li>
 	</ol>
 
+	<div style="padding:20px;">
+		<dl class="message-properties">
+			<dt>payload
+				<span class="property-type">object</span>
+			</dt>
+			<br>
+			<dd> the payload of the output is in the form: </dd>
+			<pre id="msg_format">{
+  <span class="key">"speed":</span> <span class="number">0</span>,
+  <span class="key">"brake":</span> <span class="boolean">true</span>
+}</pre>
 
+			<br> You can implement
+			<b>digital</b> i.e.
+			<i>brake</i>
+			<br>or
+			<br>
+			<b>analog</b> i.e.
+			<i>speed</i>
+			<br>or
+			<br>
+			<b>both</b>
+		</dl>
+	</div>
 	<style>
 		.key {
 			// color: #CC0000;
