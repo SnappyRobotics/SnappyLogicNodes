@@ -51,10 +51,8 @@ module.exports = function(RED) {
       if (right_speed_out != cur_right || left_speed_out != cur_left) {
         if (Math.abs(right_speed_out - cur_right) > step) {
           if (right_speed_out > cur_right) {
-            debug("front")
             cur_right += step
           } else if (right_speed_out < cur_right) {
-            debug("back")
             cur_right -= step
           }
         } else {
