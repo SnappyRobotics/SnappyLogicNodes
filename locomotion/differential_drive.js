@@ -38,48 +38,66 @@ module.exports = function(RED) {
       }
     }
 
+    var right_speed_out = 0
+    var left_speed_out = 0
+    var runningUpdate = false
+
+    var updateSpeed = function(u) {
+      if (u && runningUpdate) {
+        return
+      }
+      runningUpdate = true
+      // debug(right_speed_out, cur_right)
+      if (right_speed_out != cur_right || left_speed_out != cur_left) {
+        if (Math.abs(right_speed_out - cur_right) > step) {
+          if (right_speed_out > cur_right) {
+            debug("front")
+            cur_right += step
+          } else if (right_speed_out < cur_right) {
+            debug("back")
+            cur_right -= step
+          }
+        } else {
+          cur_right = right_speed_out
+        }
+
+        if (Math.abs(left_speed_out - cur_left) > step) {
+          if (left_speed_out > cur_left) {
+            cur_left += step
+          } else if (left_speed_out < cur_left) {
+            cur_left -= step
+          }
+
+        } else {
+          cur_left = left_speed_out
+        }
+
+        cur_right = Math.round(cur_right)
+        cur_left = Math.round(cur_left)
+
+        outputs[0].payload.speed = Math.round(cur_right)
+        outputs[1].payload.speed = Math.round(cur_left)
+
+        // debug('speed out:', cur_right, cur_left)
+
+        node.send(outputs)
+        setTimeout(function() {
+          updateSpeed()
+        }, 10);
+      } else {
+        runningUpdate = false
+      }
+    }
+
+
     var processInput = function(msg) {
       var x = msg.payload.linear.x * config.gain
       var z = msg.payload.angular.z * config.gain
 
       // debug('x, z :', x, z)
-      var right_speed_out = constrain(x + (z * config.wheel_distance / 2))
-      var left_speed_out = constrain(x - (z * config.wheel_distance / 2))
+      right_speed_out = Math.round(constrain(x + (z * config.wheel_distance / 2)))
+      left_speed_out = Math.round(constrain(x - (z * config.wheel_distance / 2)))
 
-      var updateSpeed = function() {
-        if (right_speed_out != cur_right || left_speed_out != cur_left) {
-          if (Math.abs(right_speed_out - cur_right) > step) {
-            if (right_speed_out > cur_right) {
-              cur_right += step
-            } else if (right_speed_out < cur_right) {
-              cur_right -= step
-            }
-          } else {
-            cur_right = right_speed_out
-          }
-
-          if (Math.abs(left_speed_out - cur_left) > step) {
-            if (left_speed_out > cur_left) {
-              cur_left += step
-            } else if (left_speed_out < cur_left) {
-              cur_left -= step
-            }
-
-          } else {
-            cur_left = left_speed_out
-          }
-
-          outputs[0].payload.speed = cur_right
-          outputs[1].payload.speed = cur_left
-
-          // debug('speed out:', cur_right, cur_left)
-
-          node.send(outputs)
-          setTimeout(function() {
-            updateSpeed()
-          }, 10);
-        }
-      }
 
       if (x === 0 && z === 0) {
         right_speed_out = 0
@@ -91,7 +109,7 @@ module.exports = function(RED) {
         outputs[1].payload.brake = false
       }
       if (right_speed_out != cur_right || left_speed_out != cur_left) {
-        updateSpeed()
+        updateSpeed(1)
       }
     }
 
