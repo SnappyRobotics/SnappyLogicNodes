@@ -1,5 +1,5 @@
 # snappy-logic-nodes
-Node-RED logic nodes for snappy	 project
+Node-RED logic nodes for snappy project
 
 
 ## Badges
