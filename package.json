@@ -1,6 +1,6 @@
 {
   "name": "snappy-logic-nodes",
-  "version": "0.4.398",
+  "version": "0.4.399",
   "description": "Node red nodes for logic for snappy",
   "scripts": {
     "red": "DEBUG=snappy:logic:* node-red",
