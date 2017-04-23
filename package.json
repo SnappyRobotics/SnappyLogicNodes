@@ -24,7 +24,8 @@
   ],
   "node-red": {
     "nodes": {
-      "differential_drive": "locomotion/differential_drive.js"
+      "differential_drive": "locomotion/differential_drive.js",
+      "differential_odometry": "locomotion/differential_odometry.js"
     }
   },
   "keywords": [
