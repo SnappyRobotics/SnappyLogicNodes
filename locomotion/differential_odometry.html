@@ -39,7 +39,7 @@
 
 	<div class="form-row">
 		<label for="node-input-right_topic">
-			<i class="fa fa-tag"></i> Right topic name
+			<i class="fa fa-tag"></i> Right encoder topic
 		</label>
 		<input type="text" id="node-input-right_topic">
 		<br>
@@ -52,7 +52,7 @@
 
 	<div class="form-row">
 		<label for="node-input-left_topic">
-			<i class="fa fa-tag"></i> Left topic name
+			<i class="fa fa-tag"></i> Left encoder topic
 		</label>
 		<input type="text" id="node-input-left_topic">
 		<br>
@@ -79,94 +79,69 @@
 </script>
 
 <script type="text/x-red" data-help-name="differential-odometry">
-	<p>A node which takes in JSON data and outputs for two motor to be driven in differential drive</p>
-
-	<b>Note:</b> All the values below are
-	<b style="font-size:20px">
-		velocities
-	</b> (so constant value of
-	<b>x</b> will make the motors move)
+	<p>A node which takes data from two encoders and computes the odometry information in Differential Drive configuration</p>
 
 	<h3>Inputs</h3>
+	Expected two Topic one for each side of encoder.
+
 	<dl class="message-properties">
+		<dt>topic
+			<span class="property-type">string</span>
+		</dt>
+		<dd style="16px">Inputs should be given on
+			<i>two topics</i>, defined in the settings of this node, one for each, Left and Right encoder</dd>
+
+		<br>
+
 		<dt>payload
 			<span class="property-type">object</span>
 		</dt>
-
-		<br>
-		<dd> the payload of the message to be in the form: </dd>
+		<dd> the payload of the message for each encoder to be in the form: </dd>
 		<pre id="msg_format">{
-  <span class="key">"linear":</span> {
-    <span class="key">"x":</span> <span class="number">0</span>,
-  },
-  <span class="key">"angular":</span> {
-    <span class="key">"z":</span> <span class="number">0</span>
-  }
+  <span class="key">"travel":</span> <span class="number">0.0</span>
 }</pre>
 		<br> Where
-		<strong>linear.x</strong> is the
-		<i>velocity</i> of going forward and
-		<strong>angular.z</strong> is the
-		<i>angular velocity</i> of rotation
-
-		<br>
-		<br>
-		<br> So it accepts ROS geometry_msgs/Twist message of the format :
-		<pre id="msg_format">{
-  <span class="key">"linear":</span> {
-    <span class="key">"x":</span> <span class="number">0</span>,
-    <span class="key">"y":</span> <span class="number">0</span>,
-    <span class="key">"z":</span> <span class="number">0</span>
-  },
-  <span class="key">"angular":</span> {
-    <span class="key">"x":</span> <span class="number">0</span>,
-    <span class="key">"y":</span> <span class="number">0</span>,
-    <span class="key">"z":</span> <span class="number">0</span>
-  }
-}</pre>
+		<strong>travel</strong> is the
+		<i>distance</i> traveled by the wheel in
+		<b>meters</b>
 
 	</dl>
 
 	<h3>Outputs</h3>
-	<ol class="node-ports">
-		<li>Right Motor
-			<dl class="message-properties">
-				<dd>Right motor output.(Upper output)</dd>
-				<br>
-			</dl>
-		</li>
-		<li>Left Motor
-			<dl class="message-properties">
-				<dd>Left motor output.(Lower output)</dd>
-				<br>
-			</dl>
-		</li>
-	</ol>
-
-	<div style="padding:20px;">
-		<dl class="message-properties">
-			<dt>payload
-				<span class="property-type">object</span>
-			</dt>
-			<br>
-			<dd> the payload of the output is in the form: </dd>
-			<pre id="msg_format">{
-  <span class="key">"speed":</span> <span class="number">0</span>,
-  <span class="key">"brake":</span> <span class="boolean">true</span>
+	<dl class="message-properties">
+		<dt>payload
+			<span class="property-type">object</span>
+		</dt>
+		<dd> the payload of the output is in the form: </dd>
+		<pre id="msg_format">{
+  <span class="key">"pose":</span> {
+    <span class="key">"position":</span> {
+      <span class="key">"x":</span> <span class="number">0</span>,
+      <span class="key">"y":</span> <span class="number">0</span>,
+      <span class="key">"z":</span> <span class="number">0</span>
+    },
+    <span class="key">"orientation":</span> {
+      <span class="key">"x":</span> <span class="number">0</span>,
+      <span class="key">"y":</span> <span class="number">0</span>,
+      <span class="key">"z":</span> <span class="number">0</span>,
+      <span class="key">"w":</span> <span class="number">0</span>
+    }
+  },
+  <span class="key">"twist":</span> {
+    <span class="key">"linear":</span> {
+      <span class="key">"x":</span> <span class="number">0</span>,
+      <span class="key">"y":</span> <span class="number">0</span>,
+      <span class="key">"z":</span> <span class="number">0</span>
+    },
+    <span class="key">"angular":</span> {
+      <span class="key">"x":</span> <span class="number">0</span>,
+      <span class="key">"y":</span> <span class="number">0</span>,
+      <span class="key">"z":</span> <span class="number">0</span>
+    }
+  }
 }</pre>
 
-			<br> You can implement
-			<b>digital</b> i.e.
-			<i>brake</i>
-			<br>or
-			<br>
-			<b>analog</b> i.e.
-			<i>speed</i>
-			<br>or
-			<br>
-			<b>both</b>
-		</dl>
-	</div>
+	</dl>
 	<style>
 		.key {
 			// color: #CC0000;

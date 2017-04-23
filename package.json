@@ -1,6 +1,6 @@
 {
   "name": "snappy-logic-nodes",
-  "version": "0.4.399",
+  "version": "0.5.22",
   "description": "Node red nodes for logic for snappy",
   "scripts": {
     "red": "DEBUG=snappy:logic:* node-red",
@@ -33,7 +33,7 @@
     "differential drive",
     "drive",
     "ros",
-		"node-red",
+    "node-red",
     "snappy"
   ],
   "license": "GPL-3.0",
@@ -42,7 +42,8 @@
   },
   "homepage": "https://github.com/SnappyRobotics/snappy-logic-nodes#readme",
   "dependencies": {
-    "debug": "^2.6.0"
+    "debug": "^2.6.0",
+    "quaternion": "^1.0.2"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
