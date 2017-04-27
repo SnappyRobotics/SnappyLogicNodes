@@ -110,7 +110,7 @@ module.exports = function(RED) {
         output.pose.position.y = checkNum(o.y)
 
         const quaternion = require('quaternion');
-        var q = new quaternion;
+        var q = new quaternion();
         q.setFromAxisAngle([0, 0, 1], checkNum(o.th) * Math.PI / 180)
 
         output.pose.orientation.x = checkNum(q.x)
