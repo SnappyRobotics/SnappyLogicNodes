@@ -76,6 +76,14 @@ module.exports = function(RED) {
         outputs[0].payload.speed = Math.round(cur_right)
         outputs[1].payload.speed = Math.round(cur_left)
 
+        if (cur_right === 0) {
+          outputs[0].payload.brake = true
+        }
+
+        if (cur_left === 0) {
+          outputs[1].payload.brake = true
+        }
+
         // debug('speed out:', cur_right, cur_left)
 
         node.send(outputs)
@@ -100,12 +108,11 @@ module.exports = function(RED) {
       if (x === 0 && z === 0) {
         right_speed_out = 0
         left_speed_out = 0
-        outputs[0].payload.brake = true
-        outputs[1].payload.brake = true
-      } else {
-        outputs[0].payload.brake = false
-        outputs[1].payload.brake = false
       }
+
+      outputs[0].payload.brake = false
+      outputs[1].payload.brake = false
+
       if (right_speed_out != cur_right || left_speed_out != cur_left) {
         updateSpeed(1)
       }
